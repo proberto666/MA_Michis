@@ -1,0 +1,5 @@
+domain\Persona.class
+datos\Conexion.class
+datos\PersonaDao.class
+test\test.class
+test\TestManejoDAOPersona.class

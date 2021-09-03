@@ -4,12 +4,13 @@ import static datos.Conexion.*;
 import domain.Persona;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PersonaDao {
     
     private static final String SQL_SELECT = "SELECT id_persona, nombre, apellido, email, telefono FROM prueba.persona";
+    private static final String SQL_DELETE = "DELETE FROM prueba.persona WHERE id_persona= ? ";
+    private static final String SQL_INSERT = "INSERT INTO persona(nombre, apellido, email, telefono) VALUES(?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?, apellido = ?, email = ?, telefono = ? WHERE id_persona = ?";
     
     //Método que regresa una lista de objetos de tipo Persona de la clase Persona.java
     public List <Persona> seleccionar(){
@@ -59,18 +60,13 @@ public class PersonaDao {
     }
     
     public Persona delete(int id_persona)
-    {
-        //Creación de la línea de secuencia de SQL
-        String stringID = String.valueOf(id_persona);
-        String SQL_DELETE = "DELETE FROM prueba.persona WHERE id_persona=".concat(stringID);
-        
+    {      
         Connection conn = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
+            stmt.setInt(1, id_persona);
             stmt.executeUpdate();
             System.out.println("Borrado con éxito.");
         } catch (SQLException ex) {
@@ -87,5 +83,58 @@ public class PersonaDao {
             }
         }
         return null;
+    }
+    
+      public int insertar(Persona persona){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = getConnection();
+            stmt = conn.prepareStatement(SQL_INSERT);
+            stmt.setString(1, persona.getNombre());
+            stmt.setString(2, persona.getApellido());
+            stmt.setString(3, persona.getEmail());
+            stmt.setString(4, persona.getTelefono());
+            registros = stmt.executeUpdate(); 
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+        finally{
+            try {
+                close(stmt);
+                close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
+    }
+    
+    public int actualizar(Persona persona){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE);
+             stmt.setString(1, persona.getNombre());
+            stmt.setString(2, persona.getApellido());
+            stmt.setString(3, persona.getEmail());
+            stmt.setString(4, persona.getTelefono());
+            stmt.setInt(5, persona.getIdPersona());
+            registros = stmt.executeUpdate(); 
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+        finally{
+            try {
+                close(stmt);
+                close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
     }
 }

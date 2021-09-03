@@ -24,7 +24,7 @@ public class UsuarioDao {
     private static final String SQL_INSERT = "INSERT INTO usuario(usuario, contrasena) VALUES(?,?)";
     private static final String SQL_UPDATE = "UPDATE usuario SET usuario = ?, contrasena = ? WHERE id_usuario = ?";
     
-    public List <Usuario> seleccionar(){
+    static public List <Usuario> seleccionar(){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -64,14 +64,14 @@ public class UsuarioDao {
         return usuarios;
     }
     
-    public Usuario delete(int id_usuario)
+    public Usuario delete(Usuario usuario)
     {      
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, id_usuario);
+            stmt.setInt(1, usuario.getId_usuario());
             stmt.executeUpdate();
             System.out.println("Borrado con éxito.");
         } catch (SQLException ex) {
@@ -120,8 +120,9 @@ public class UsuarioDao {
         try {
             conn = getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
-             stmt.setString(1, usuario.getUsuario());
+            stmt.setString(1, usuario.getUsuario());
             stmt.setString(2, usuario.getContrasena());
+            stmt.setInt(3, usuario.getId_usuario());
             registros = stmt.executeUpdate(); 
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);

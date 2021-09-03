@@ -5,6 +5,7 @@ public class Usuario {
     private String usuario;
     private String contrasena;
     
+    //Contructor Vacío
     public Usuario(){
     }
 

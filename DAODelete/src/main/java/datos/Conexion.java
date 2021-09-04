@@ -6,7 +6,7 @@ public class Conexion {
     //Generar las constantes de credenciales para la BD
     private static final String JDBC_URL =  "jdbc:mysql://localhost:3306/prueba?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "admin123";
+    private static final String JDBC_PASSWORD = "root";
     
     public static Connection getConnection() throws SQLException{ 
         return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);

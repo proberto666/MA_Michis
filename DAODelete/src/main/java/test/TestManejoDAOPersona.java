@@ -8,13 +8,13 @@ import java.util.Scanner;
 public class TestManejoDAOPersona {
     public static void main(String[] args){
         PersonaDao personaDao = new PersonaDao();
-        /*
+        
         List<Persona> personas = personaDao.seleccionar();
         
         for(Persona persona:personas){
             System.out.println("persona"+persona);
-        }*/
-        
+        }
+        /*
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce la id_persona del objeto que desea borrar: ");
         int idDelete = scanner.nextInt();
@@ -26,6 +26,6 @@ public class TestManejoDAOPersona {
         for(Persona persona:personas){
             System.out.println("persona"+persona);
         }
-        
+        */
     }
 }

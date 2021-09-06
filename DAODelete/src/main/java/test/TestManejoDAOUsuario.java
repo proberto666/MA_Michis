@@ -10,28 +10,24 @@ public class TestManejoDAOUsuario {
 
         UsuarioDao usuarioDao = new UsuarioDao();
 
-    //INSERTAR
-    Usuario usuarioNuevo = new Usuario("Yare", "1234");
-    usuarioDao.insertar(usuarioNuevo);
-    usuarioNuevo = new Usuario("Otra Yare", "1234");
-    usuarioDao.insertar(usuarioNuevo);
-    usuarioNuevo = new Usuario("Otra Yare 3", "1234");
-    usuarioDao.insertar(usuarioNuevo);
-    usuarioNuevo = new Usuario("Otra Yare 4", "1234");
-    usuarioDao.insertar(usuarioNuevo);
-    usuarioNuevo = new Usuario("Otra Yare 5", "1234");
-    usuarioDao.insertar(usuarioNuevo);
-
-    //ACTUAIZAR
-    Usuario usuarioEditar = new Usuario(4,"Yareli","yare12");
-    usuarioDao.actualizar(usuarioEditar);
-
-    //ELIMINAR
-    Usuario UsuarioEliminar = new Usuario(3);
-        usuarioDao.delete(UsuarioEliminar);
-
-        // CONSULTAR
+         // CONSULTAR
         List<Usuario> usuarios= UsuarioDao.seleccionar();
+        usuarios.forEach(usuario -> {
+            System.out.println(usuario);
+        });
+        //INSERTAR
+        Usuario usuarioNuevo = new Usuario("Victor", "1234");
+        usuarioDao.insertar(usuarioNuevo);
+        usuarioNuevo = new Usuario("Mariela", "1234");
+        usuarioDao.insertar(usuarioNuevo);
+        //ACTUAIZAR
+        Usuario usuarioEditar = new Usuario(5,"Yareli","yare12");
+        usuarioDao.actualizar(usuarioEditar);
+        //ELIMINAR
+        Usuario UsuarioEliminar = new Usuario(6);
+            usuarioDao.delete(UsuarioEliminar);
+        // CONSULTAR
+        usuarios= UsuarioDao.seleccionar();
         usuarios.forEach(usuario -> {
             System.out.println(usuario);
         });

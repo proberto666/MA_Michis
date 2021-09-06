@@ -19,12 +19,21 @@ import java.util.List;
  * @author Mariroco
  */
 public class UsuarioDao {
-     private static final String SQL_SELECT = "SELECT id_usuario, usuario, contrasena FROM prueba.usuario";
+    
+    private Connection conTransaccional;
+    
+    private static final String SQL_SELECT = "SELECT id_usuario, usuario, contrasena FROM prueba.usuario";
     private static final String SQL_DELETE = "DELETE FROM prueba.usuario WHERE id_usuario= ? ";
     private static final String SQL_INSERT = "INSERT INTO usuario(usuario, contrasena) VALUES(?,?)";
     private static final String SQL_UPDATE = "UPDATE usuario SET usuario = ?, contrasena = ? WHERE id_usuario = ?";
     
-    static public List <Usuario> seleccionar(){
+    public UsuarioDao(){}
+    public UsuarioDao(Connection conTransaccional){
+        this.conTransaccional = conTransaccional;
+    }
+    
+    
+    static public List <Usuario> seleccionar()throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -64,48 +73,25 @@ public class UsuarioDao {
         return usuarios;
     }
     
-    public Usuario delete(Usuario usuario)
-    {      
+    public int eliminar(Usuario usuario) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
+        int registros = 0; 
         try {
-            conn = Conexion.getConnection();
+            conn = this.conTransaccional != null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setInt(1, usuario.getId_usuario());
-            stmt.executeUpdate();
-            System.out.println("Borrado con éxito.");
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        }
-        
-        finally{
-            try {
-                Conexion.close(stmt);
-                Conexion.close(conn);
-            } catch (SQLException ex) {
-                ex.printStackTrace(System.out);
-            }
-        }
-        return null;
-    }
-    
-      public int insertar(Usuario usuario){
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int registros = 0;
-        try {
-            conn = getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, usuario.getUsuario());
-            stmt.setString(2, usuario.getContrasena());
+
+            // Ejecutar sentencia
             registros = stmt.executeUpdate(); 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
         }
-        finally{
+        finally {
             try {
                 close(stmt);
-                close(conn);
+                if (this.conTransaccional == null) {
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
@@ -113,24 +99,53 @@ public class UsuarioDao {
         return registros;
     }
     
-    public int actualizar(Usuario usuario){
+      public int insertar(Usuario usuario)throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
         try {
-            conn = getConnection();
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
+            stmt = conn.prepareStatement(SQL_INSERT);
+            stmt.setString(1, usuario.getUsuario());
+            stmt.setString(2, usuario.getContrasena());
+            registros = stmt.executeUpdate(); 
+        }
+        catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        finally{
+            try {
+                close(stmt);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
+    }
+    
+    public int actualizar(Usuario usuario) throws SQLException{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setString(1, usuario.getUsuario());
             stmt.setString(2, usuario.getContrasena());
             stmt.setInt(3, usuario.getId_usuario());
             registros = stmt.executeUpdate(); 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        }
+        }catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
         finally{
             try {
                 close(stmt);
-                close(conn);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }

@@ -7,10 +7,17 @@ import java.util.*;
 
 public class PersonaDao {
     
+    private Connection conTransaccional;
+    
     private static final String SQL_SELECT = "SELECT id_persona, nombre, apellido, email, telefono FROM prueba.persona";
     private static final String SQL_DELETE = "DELETE FROM prueba.persona WHERE id_persona= ? ";
     private static final String SQL_INSERT = "INSERT INTO persona(nombre, apellido, email, telefono) VALUES(?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?, apellido = ?, email = ?, telefono = ? WHERE id_persona = ?";
+    
+    public PersonaDao(){}
+    public PersonaDao(Connection conTransaccional){
+        this.conTransaccional = conTransaccional;
+    }
     
     //Método que regresa una lista de objetos de tipo Persona de la clase Persona.java
     public List <Persona> seleccionar(){
@@ -21,7 +28,7 @@ public class PersonaDao {
         
         List<Persona> personas = new ArrayList<>();
         try {
-            conn = Conexion.getConnection();
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareCall(SQL_SELECT);
             rs = stmt.executeQuery();
             
@@ -49,7 +56,9 @@ public class PersonaDao {
             try {
                 Conexion.close(rs);
                 Conexion.close(stmt);
-                Conexion.close(conn);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
@@ -59,25 +68,24 @@ public class PersonaDao {
         return personas;
     }
     
-    public Persona delete(int id_persona)
+    public Persona delete(int id_persona)throws SQLException
     {      
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
-            conn = Conexion.getConnection();
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setInt(1, id_persona);
             stmt.executeUpdate();
             System.out.println("Borrado con éxito.");
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        }
-        
+        } 
         //Cerrar todos los objetos de conexión
         finally{
             try {
                 Conexion.close(stmt);
-                Conexion.close(conn);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
@@ -85,25 +93,24 @@ public class PersonaDao {
         return null;
     }
     
-      public int insertar(Persona persona){
+      public int insertar(Persona persona) throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
         try {
-            conn = getConnection();
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setString(1, persona.getNombre());
             stmt.setString(2, persona.getApellido());
             stmt.setString(3, persona.getEmail());
             stmt.setString(4, persona.getTelefono());
             registros = stmt.executeUpdate(); 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             try {
                 close(stmt);
-                close(conn);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
@@ -111,12 +118,12 @@ public class PersonaDao {
         return registros;
     }
     
-    public int actualizar(Persona persona){
+    public int actualizar(Persona persona) throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
         try {
-            conn = getConnection();
+            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
              stmt.setString(1, persona.getNombre());
             stmt.setString(2, persona.getApellido());
@@ -124,13 +131,12 @@ public class PersonaDao {
             stmt.setString(4, persona.getTelefono());
             stmt.setInt(5, persona.getIdPersona());
             registros = stmt.executeUpdate(); 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             try {
                 close(stmt);
-                close(conn);
+                if(this.conTransaccional==null){
+                    Conexion.close(conn);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }

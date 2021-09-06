@@ -32,6 +32,9 @@ public class testPersonaTransaccional {
             nuevaPersona.setTelefono("1234567890");
             personaDao.insertar(nuevaPersona);
             
+            conexion.commit();
+            System.out.println("Se realizaron correctamente las modificaciones en la BD");
+            
         }  catch (SQLException ex) {
             ex.printStackTrace(System.out);
             System.out.println("Entramos al rollback - no fue posible realizar cambios");

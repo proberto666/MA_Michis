@@ -8,10 +8,7 @@ package test;
 import datos.Conexion;
 import datos.UsuarioDao;
 import domain.Usuario;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-
+import java.sql.*;
 /**
  *
  * @author proberto666
@@ -29,7 +26,7 @@ public class testUserTrransaccional {
             UsuarioDao usuarioDao= new UsuarioDao(conexion);
             
             Usuario actualizarUsuario = new Usuario();
-            actualizarUsuario.setId_usuario(1);
+            actualizarUsuario.setId_usuario(12);
             actualizarUsuario.setUsuario("Fernando");
             actualizarUsuario.setContrasena("Contrasenalarga");
             
@@ -45,6 +42,8 @@ public class testUserTrransaccional {
             deleteUsuario.setId_usuario(4);
             
             usuarioDao.eliminar(deleteUsuario);
+            conexion.commit();
+            System.out.println("Se realizaron correctamente las modificaciones en la BD");
             
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);

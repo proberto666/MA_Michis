@@ -155,19 +155,23 @@ public class examenP1 {
                 usuarioDao.eliminar(UsuarioEliminar);
                 break;
             case 3:
-                Usuario usuarioNuevo = new Usuario("Yare", "1234");
-                usuarioDao.insertar(usuarioNuevo);
-                usuarioNuevo = new Usuario("Otra Yare", "1234");
-                usuarioDao.insertar(usuarioNuevo);
-                usuarioNuevo = new Usuario("Otra Yare 3", "1234");
-                usuarioDao.insertar(usuarioNuevo);
-                usuarioNuevo = new Usuario("Otra Yare 4", "1234");
-                usuarioDao.insertar(usuarioNuevo);
-                usuarioNuevo = new Usuario("Otra Yare 5", "1234");
+                System.out.println("Ingrese el usuario: \n");
+                user = input.nextLine();
+                System.out.println("Ingrese la contraseña: \n");
+                password = input.nextLine();
+                
+                Usuario usuarioNuevo = new Usuario(user, password);
                 usuarioDao.insertar(usuarioNuevo);
                 break;
             case 4:
-                Usuario usuarioEditar = new Usuario(4,"Yareli","yare12");
+                System.out.println("Ingrese el id del usuario a editar: \n");
+                id = Integer.parseInt(input.nextLine());
+                System.out.println("Ingrese el usuario: \n");
+                user = input.nextLine();
+                System.out.println("Ingrese la contraseña: \n");
+                password = input.nextLine();
+                
+                Usuario usuarioEditar = new Usuario(id,user,password);
                 usuarioDao.actualizar(usuarioEditar);
                 break;
             case 5:

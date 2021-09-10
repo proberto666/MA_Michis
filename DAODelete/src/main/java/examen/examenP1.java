@@ -51,6 +51,14 @@ public class examenP1 {
     }
     
     public static void menuPersona() throws SQLException{
+
+        //Variables auxiliares
+        int id = 0;
+        String nombre = "";
+        String apellido = "";
+        String correo = "";
+        String telefono = "";
+
         PersonaDao personaDao = new PersonaDao();
         Scanner input= new Scanner(System.in);
         int x=0;                
@@ -72,19 +80,22 @@ public class examenP1 {
                 System.out.println(persona);});
                 break;
             case 2:
-                Persona PersonaEliminar = new Persona(3);
-                 personaDao.delete(PersonaEliminar);
+                System.out.println("Ingrese el id de la persona a eliminar: \n");
+                id = Integer.parseInt(input.nextLine());
+                Persona PersonaEliminar = new Persona(id);
+                personaDao.delete(PersonaEliminar);
                 break;
             case 3:
-                Persona personaNuevo = new Persona("Yare","Ramirez","yareli@gmail.com", "1234");
-                personaDao.insertar(personaNuevo);
-                personaNuevo = new Persona("Yare","Ramirez","yareli@gmail.com", "1234");
-                personaDao.insertar(personaNuevo);
-                personaNuevo = new Persona("Yare","Ramirez","yareli@gmail.com", "1234");
-                personaDao.insertar(personaNuevo);
-                personaNuevo = new Persona("Yare","Ramirez","yareli@gmail.com", "1234");
-                personaDao.insertar(personaNuevo);
-                personaNuevo = new Persona("Yare","Ramirez","yareli@gmail.com", "1234");
+                System.out.println("Ingrese el nombre: \n");
+                nombre = input.nextLine();
+                System.out.println("Ingrese el apellido: \n");
+                apellido = input.nextLine();
+                System.out.println("Ingrese el correo: \n");
+                correo = input.nextLine();
+                System.out.println("Ingrese el teléfono: \n");
+                telefono = input.nextLine();
+                
+                Persona personaNuevo = new Persona(nombre,apellido,correo,telefono);
                 personaDao.insertar(personaNuevo);
                 break;
             case 4:

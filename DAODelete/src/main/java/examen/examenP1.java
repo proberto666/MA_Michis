@@ -99,7 +99,18 @@ public class examenP1 {
                 personaDao.insertar(personaNuevo);
                 break;
             case 4:
-                Persona personaEditar = new Persona(1,"Yare","Ramirez","yareli@gmail.com", "1234");
+                System.out.println("Ingrese el id de la persona a editar: \n");
+                id = Integer.parseInt(input.nextLine());
+                System.out.println("Ingrese el nombre: \n");
+                nombre = input.nextLine();
+                System.out.println("Ingrese el apellido: \n");
+                apellido = input.nextLine();
+                System.out.println("Ingrese el correo: \n");
+                correo = input.nextLine();
+                System.out.println("Ingrese el teléfono: \n");
+                telefono = input.nextLine();
+                
+                Persona personaEditar = new Persona(id,nombre,apellido,correo,telefono);
                 personaDao.actualizar(personaEditar);
                 break;
             case 5:
@@ -113,6 +124,11 @@ public class examenP1 {
     
     public static void menuUsuario() throws SQLException{
         UsuarioDao usuarioDao = new UsuarioDao();
+
+        int id = 0;
+        String user = "";
+        String password = "";
+
         Scanner input= new Scanner(System.in);
         int x=0;                
         while(x==0){
@@ -133,8 +149,10 @@ public class examenP1 {
                 System.out.println(usuario);});
                 break;
             case 2:
-                Usuario UsuarioEliminar = new Usuario(3);
-                 usuarioDao.eliminar(UsuarioEliminar);
+                System.out.println("Ingrese el id del usuario a eliminar: \n");
+                id = Integer.parseInt(input.nextLine());
+                Usuario UsuarioEliminar = new Usuario(id);
+                usuarioDao.eliminar(UsuarioEliminar);
                 break;
             case 3:
                 Usuario usuarioNuevo = new Usuario("Yare", "1234");

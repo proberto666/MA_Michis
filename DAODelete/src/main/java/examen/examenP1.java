@@ -99,18 +99,7 @@ public class examenP1 {
                 personaDao.insertar(personaNuevo);
                 break;
             case 4:
-                System.out.println("Ingrese el id de la persona a editar: \n");
-                id = Integer.parseInt(input.nextLine());
-                System.out.println("Ingrese el nombre: \n");
-                nombre = input.nextLine();
-                System.out.println("Ingrese el apellido: \n");
-                apellido = input.nextLine();
-                System.out.println("Ingrese el correo: \n");
-                correo = input.nextLine();
-                System.out.println("Ingrese el teléfono: \n");
-                telefono = input.nextLine();
-                
-                Persona personaEditar = new Persona(id,nombre,apellido,correo,telefono);
+                Persona personaEditar = new Persona(1,"Yare","Ramirez","yareli@gmail.com", "1234");
                 personaDao.actualizar(personaEditar);
                 break;
             case 5:
@@ -124,11 +113,6 @@ public class examenP1 {
     
     public static void menuUsuario() throws SQLException{
         UsuarioDao usuarioDao = new UsuarioDao();
-
-        int id = 0;
-        String user = "";
-        String password = "";
-
         Scanner input= new Scanner(System.in);
         int x=0;                
         while(x==0){
@@ -149,29 +133,23 @@ public class examenP1 {
                 System.out.println(usuario);});
                 break;
             case 2:
-                System.out.println("Ingrese el id del usuario a eliminar: \n");
-                id = Integer.parseInt(input.nextLine());
-                Usuario UsuarioEliminar = new Usuario(id);
-                usuarioDao.eliminar(UsuarioEliminar);
+                Usuario UsuarioEliminar = new Usuario(3);
+                 usuarioDao.eliminar(UsuarioEliminar);
                 break;
             case 3:
-                System.out.println("Ingrese el usuario: \n");
-                user = input.nextLine();
-                System.out.println("Ingrese la contraseña: \n");
-                password = input.nextLine();
-                
-                Usuario usuarioNuevo = new Usuario(user, password);
+                Usuario usuarioNuevo = new Usuario("Yare", "1234");
+                usuarioDao.insertar(usuarioNuevo);
+                usuarioNuevo = new Usuario("Otra Yare", "1234");
+                usuarioDao.insertar(usuarioNuevo);
+                usuarioNuevo = new Usuario("Otra Yare 3", "1234");
+                usuarioDao.insertar(usuarioNuevo);
+                usuarioNuevo = new Usuario("Otra Yare 4", "1234");
+                usuarioDao.insertar(usuarioNuevo);
+                usuarioNuevo = new Usuario("Otra Yare 5", "1234");
                 usuarioDao.insertar(usuarioNuevo);
                 break;
             case 4:
-                System.out.println("Ingrese el id del usuario a editar: \n");
-                id = Integer.parseInt(input.nextLine());
-                System.out.println("Ingrese el usuario: \n");
-                user = input.nextLine();
-                System.out.println("Ingrese la contraseña: \n");
-                password = input.nextLine();
-                
-                Usuario usuarioEditar = new Usuario(id,user,password);
+                Usuario usuarioEditar = new Usuario(4,"Yareli","yare12");
                 usuarioDao.actualizar(usuarioEditar);
                 break;
             case 5:

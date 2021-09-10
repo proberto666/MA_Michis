@@ -20,7 +20,7 @@ public class PersonaDao {
     }
     
     //Método que regresa una lista de objetos de tipo Persona de la clase Persona.java
-    public List <Persona> seleccionar(){
+    public static List <Persona> seleccionar(){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -28,7 +28,7 @@ public class PersonaDao {
         
         List<Persona> personas = new ArrayList<>();
         try {
-            conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
+            conn = Conexion.getConnection();
             stmt = conn.prepareCall(SQL_SELECT);
             rs = stmt.executeQuery();
             
@@ -56,9 +56,7 @@ public class PersonaDao {
             try {
                 Conexion.close(rs);
                 Conexion.close(stmt);
-                if(this.conTransaccional==null){
                     Conexion.close(conn);
-                }
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
@@ -68,14 +66,14 @@ public class PersonaDao {
         return personas;
     }
     
-    public Persona delete(int id_persona)throws SQLException
+    public Persona delete(Persona persona)throws SQLException
     {      
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = this.conTransaccional!=null ? this.conTransaccional : getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, id_persona);
+            stmt.setInt(1, persona.getIdPersona());
             stmt.executeUpdate();
             System.out.println("Borrado con éxito.");
         } 

@@ -22,8 +22,8 @@ De igual forma el sistema deberá ser capaz de saber cuantas entidades (persona 
 */
 public class examenP1 {
     
-    public int usrEliminado = 0, usrActualizado = 0, usrAlta = 0;
-    public int prsnEliminado = 0, prsnActualizado = 0, prsnAlta = 0;
+    public static int usrEliminado = 0, usrActualizado = 0, usrAlta = 0;
+    public static int prsnEliminado = 0, prsnActualizado = 0, prsnAlta = 0;
     
     public static void main(String[] args) throws SQLException{
         Scanner input= new Scanner(System.in);
@@ -32,6 +32,7 @@ public class examenP1 {
         System.out.println("---MENU---"
             + "\n1-Persona"
             + "\n2-Usuario"
+            + "\n3-Registro de cambios"
             + "\n----------"
             + "\nIntroduce un número: ");
         
@@ -43,6 +44,9 @@ public class examenP1 {
                 break;
             case 2:
                 menuUsuario();
+                break;
+            case 3:
+                contadoresCambios();
                 break;
             default:
                 System.out.println("Error");
@@ -84,6 +88,7 @@ public class examenP1 {
                 id = Integer.parseInt(input.nextLine());
                 Persona PersonaEliminar = new Persona(id);
                 personaDao.delete(PersonaEliminar);
+                 prsnEliminado++;
                 break;
             case 3:
                 System.out.println("Ingrese el nombre: \n");
@@ -97,6 +102,7 @@ public class examenP1 {
                 
                 Persona personaNuevo = new Persona(nombre,apellido,correo,telefono);
                 personaDao.insertar(personaNuevo);
+                prsnAlta++;
                 break;
             case 4:
                 System.out.println("Ingrese el id de la persona a editar: \n");
@@ -112,6 +118,7 @@ public class examenP1 {
                 
                 Persona personaEditar = new Persona(id,nombre,apellido,correo,telefono);
                 personaDao.actualizar(personaEditar);
+                prsnActualizado++;
                 break;
             case 5:
                 x++;
@@ -153,6 +160,7 @@ public class examenP1 {
                 id = Integer.parseInt(input.nextLine());
                 Usuario UsuarioEliminar = new Usuario(id);
                 usuarioDao.eliminar(UsuarioEliminar);
+                usrEliminado++;
                 break;
             case 3:
                 System.out.println("Ingrese el usuario: \n");
@@ -162,6 +170,7 @@ public class examenP1 {
                 
                 Usuario usuarioNuevo = new Usuario(user, password);
                 usuarioDao.insertar(usuarioNuevo);
+                usrActualizado++;
                 break;
             case 4:
                 System.out.println("Ingrese el id del usuario a editar: \n");
@@ -173,6 +182,7 @@ public class examenP1 {
                 
                 Usuario usuarioEditar = new Usuario(id,user,password);
                 usuarioDao.actualizar(usuarioEditar);
+                usrAlta++;
                 break;
             case 5:
                 x++;
@@ -182,4 +192,17 @@ public class examenP1 {
             }
         }
     }
+    
+    public static void contadoresCambios() {
+        System.out.println("--PERSONAS--\n");
+        System.out.println("Agregadas: " + prsnAlta);
+        System.out.println("Eliminadas: " + prsnEliminado);
+        System.out.println("Actualizadas: " + prsnActualizado);
+        
+        System.out.println("--USUARIOS--\n");
+        System.out.println("Agregados: " + usrAlta);
+        System.out.println("Eliminados: " + usrEliminado);
+        System.out.println("Actualizados: " + usrActualizado);
+    }
+    
 }

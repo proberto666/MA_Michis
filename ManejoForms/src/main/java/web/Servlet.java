@@ -23,9 +23,9 @@ public class Servlet extends HttpServlet {
         String musica = request.getParameter("musica");
         String comentarios = request.getParameter("comentarios");
         
-        String br = "<br/>";
-        String nombreCampo = "<div class='col-12 text-center pt-3 pb-2 fw-bold'>";
-        String valorCampo = "<div class='col-12 text-center'>";
+        String nombreCampo = "<tr class='col-12 text-center pt-3 pb-2 fw-bold'><td>";
+        String endTr = "</td></tr>";
+        String valorCampo = "<tr class='col-12 text-center'><td>";
         String endDiv= "</div>";
 
         String imports = "<meta charset='UTF-8'/>"+
@@ -33,25 +33,25 @@ public class Servlet extends HttpServlet {
         "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous'>";
 
         out.println("<html><head><title>Respuesta Servlet</title>"+imports+"</head>");
-        out.println("<body class='container-fluid'");
+        out.println("<body class='container-fluid'>");
         out.println("<div class='row'><div class='container col-4 mt-5 p-3 box'>");
-        out.println("<h1 class='text-center'>Respuestas del usuario</h1>"+nombreCampo+"Usuario:"+endDiv+valorCampo);
-        out.println(usuario+br);
-        out.println(endDiv+nombreCampo+"Contraseña:"+endDiv+valorCampo);
-        out.println(contrasena+br);
-        out.println(endDiv+nombreCampo+"Tecnologías:"+endDiv+valorCampo);
+        out.println("<h1 class='text-center'>Respuestas del usuario</h1><table class='table'>"+nombreCampo+"Usuario:"+endTr+valorCampo);
+        out.println(usuario);
+        out.println(endTr+nombreCampo+"Contraseña:"+endTr+valorCampo);
+        out.println(contrasena);
+        out.println(endTr+nombreCampo+"Tecnologías:"+endTr+valorCampo);
         for (String tecnologia : tecnologias) {
-            out.println(tecnologia+br);   
+            out.println(tecnologia);   
         }
-        out.println(endDiv+nombreCampo+"Genero:"+endDiv+valorCampo);
-        out.println(genero+br);
-        out.println(endDiv+nombreCampo+"Ocupación:"+endDiv+valorCampo);
-        out.println(ocupacion+br);
-        out.println(endDiv+nombreCampo+"Música:"+endDiv+valorCampo);
-        out.println(musica+br);
-        out.println(endDiv+nombreCampo+"Comentarios:"+endDiv+valorCampo);
-        out.println(comentarios+br);
-        out.println(endDiv+endDiv+"</body></html>");
+        out.println(endTr+nombreCampo+"Genero:"+endTr+valorCampo);
+        out.println(genero);
+        out.println(endTr+nombreCampo+"Ocupación:"+endTr+valorCampo);
+        out.println(ocupacion);
+        out.println(endTr+nombreCampo+"Música:"+endTr+valorCampo);
+        out.println(musica);
+        out.println(endTr+nombreCampo+"Comentarios:"+endTr+valorCampo);
+        out.println(comentarios);
+        out.println(endTr+"</table>"+endDiv+endDiv+"</body></html>");
         
     }
 

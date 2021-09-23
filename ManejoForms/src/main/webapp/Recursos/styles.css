@@ -1,0 +1,10 @@
+body{
+    font-family: "Helvetica", "Arial", "Sans-Serif";
+    color:lavenderblush;
+}
+
+    
+.box{
+    background-color: lavender; 
+    border-radius: 1.5em;
+}

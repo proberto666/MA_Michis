@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es_mx">
+    <head>
+        <title>Manejo Formularios</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="./Recursos/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script type="text/javascript" src="Recursos/funciones.js"></script>
+    </head>
+    <body class="container-fluid">
+        <div class="row">
+            <form action="/ManejoForms/Servlet" method="post" class="form container col-4 mt-5 p-3 box" onsubmit="return validarForm(this)">
+                <h1 class="text-center">Registro de datos</h1>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="text-right">
+                                Usuario*:
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" name="usuario" value="Escribir usuario"
+                                       onfocus="this.select()"/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="text-right">
+                                Contraseña*:
+                            </td>
+                            <td>
+                                <input class="form-control" type="password" name="contrasena" 
+                                       onfocus="this.select()"/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="text-right">
+                                Tecnología de desarrollo*:
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkJava" name="tecnologia" value="java"/>
+                                    <label for="checkJava" class="form-check-label">Java</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkDotnet" name="tecnologia" value="dotnet"/>
+                                    <label for="checkDotnet" class="form-check-label">Dot Net</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkPhp" name="tecnologia" value="php"/>
+                                    <label for="checkPhp" class="form-check-label">PHP</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                Genero*:
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="checkM" name="genero" value="Mujer"/>
+                                    <label for="checkM" class="form-check-label">Mujer</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="checkH" name="genero" value="Hombre"/>
+                                    <label for="checkH" class="form-check-label">Hombre</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="checkO" name="genero" value="Otro"/>
+                                    <label for="checkO" class="form-check-label">Otro</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                Ocupación*:
+                            </td>
+                            <td>
+                                <select name="ocupacion" class="form-select">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Profesor">Profesor</option>
+                                    <option value="Ingeniero">Ingeniero</option>
+                                    <option value="Jubilado">Jubilado</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                Música Favorita*:
+                            </td>
+                            <td>
+                                <select name="musica" class="form-select">
+                                    <option value="Pop">Pop</option>
+                                    <option value="Hyper-pop">Hyper-pop</option>
+                                    <option value="Pc-Music">Pc-Music</option>
+                                    <option value="Selena">Selena</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                Comentarios*:
+                            </td>
+                            <td>
+                                <textarea class="form-control" name="comentarios" rows="2" cols="30" onfocus="this.select()"></textarea>
+        
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td colspan="2"> 
+                                <input class="btn btn-danger m-2" type="reset" value="Limpiar"/>
+                                <input class="btn btn-primary m-2" type="submit" value="Enviar"/>
+                            </td>
+                        </tr>
+                    </tbody>
+            </form>
+        </div>
+    </body>
+</html>

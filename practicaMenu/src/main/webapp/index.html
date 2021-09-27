@@ -1,51 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <title>Práctica Menú</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="recursos/estilos.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script type="text/javascript" src="recursos/funciones.js"></script>
     </head>
-    <body>
-}
-        <form action="/practicaMenu/Servlet" method="post" onsubmit="return validarForm(this)">
-            <h1>PRACTICA MENU OPCIONES</h1>
-            &nbsp;&nbsp;
-            <h2> Menú</h2>
-            <input type="radio" name="opcion" value="1" > <label>Fórmula General</label>
-            &nbsp;&nbsp;
-            <input type="radio" name="opcion" value="2" > <label>Números primos</label>
-            &nbsp;&nbsp;
-            <input type="radio" name="opcion" value="3" > <label>Tipo de triángulo</label>
-            <br> <br>
-            <input type="submit" value="Seleccionar"/>
-            <br> 
-            <br>
-            <br> 
-            <br>
-            <label >Fórmula general</label>
-            <br>
-            <input type="number" name="formulaGA" placeholder="Ingrese el valor de a" onfocus="this.select()"> &nbsp;&nbsp;
-            <input type="number" name="formulaGB" placeholder="Ingrese el valor de b" onfocus="this.select()"> &nbsp;&nbsp;
-            <input type="number" name="formulaGC" placeholder="Ingrese el valor de c" onfocus="this.select()"> &nbsp;&nbsp;
-            <br>
-            <br>
-            <br>
-            <br>
-            <label >Números Primos</label>
-            <br>
-            <input type="number" name="numero" placeholder="Ingrese total números" onfocus="this.select()"> &nbsp;&nbsp;
-            <br>
-            <br>
-            <br>
-            <br>
-            <label >Tipo de triángulo</label>
-            <br>
-            <input type="number" name="ladoA" placeholder="Ingrese lado a" onfocus="this.select()"> &nbsp;&nbsp;
-            <input type="number" name="ladoB" placeholder="Ingrese lado b" onfocus="this.select()"> &nbsp;&nbsp;
-            <input type="number" name="ladoC" placeholder="Ingrese lado c" onfocus="this.select()"> &nbsp;&nbsp;
-                       
+    <body class="container-fluid">
+        <div class="row">
+        <form action="/practicaMenu/Servlet" class="form container col-6 mt-5 p-2 text-center" method="post" onsubmit="return validarForm(this)">
+            <h1 class="text-center">Práctica Menú Opciones</h1>
+            <h2 class="text-center mt-3"> Menú</h2>
+
+            <div class="row mt-4">
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcion" value="1" id="FormulaGeneral"> 
+                        <label for="FormulaGeneral" class="form-check-label">Fórmula General</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcion" value="2" id="NumerosPrimos"> 
+                        <label for="NumerosPrimos" class="form-check-label">Números primos</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcion" value="3" id="TipoTriangulo"> 
+                        <label for="TipoTriangulo" class="form-check-label">Tipo de triángulo</label>
+                    </div>
+                </div>
+                    
+                <div class="col-9">
+                    <div class="formulaGeneral">
+                        <label class="fw-bold">Fórmula general</label>
+                        <input type="number" class="form-control" name="formulaGA" placeholder="Ingrese el valor de a" onfocus="this.select()"></br>
+                        <input type="number" class="form-control" name="formulaGB" placeholder="Ingrese el valor de b" onfocus="this.select()"></br>
+                        <input type="number" class="form-control" name="formulaGC" placeholder="Ingrese el valor de c" onfocus="this.select()"></br>
+                    </div>
+        
+                    <div class="NumPrimos">
+                        <label class="fw-bold">Números Primos</label>
+                        <input type="number" class="form-control" name="numero" placeholder="Ingrese total números" onfocus="this.select()"> &nbsp;&nbsp;    
+                    </div>
+        
+                    <div class="TipoTriangulo">
+                        <label class="fw-bold">Tipo de triángulo</label>
+                        <input type="number" class="form-control" name="ladoA" placeholder="Ingrese lado a" onfocus="this.select()"></br>
+                        <input type="number" class="form-control" name="ladoB" placeholder="Ingrese lado b" onfocus="this.select()"></br>
+                        <input type="number" class="form-control" name="ladoC" placeholder="Ingrese lado c" onfocus="this.select()"></br>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <input class="btn btn-primary m-2" type="submit" value="Seleccionar"/>
         </form>
-              
+        </div>
     </body>
 </html>

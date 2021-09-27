@@ -13,7 +13,7 @@ public class Servlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out= response.getWriter();
-        String endTags = "</body></html>";
+        String endTags = "</div></div></body></html>";
 
         int action = Integer.parseInt(request.getParameter("opcion"));
         
@@ -21,8 +21,11 @@ public class Servlet extends HttpServlet{
         out.print("<head>");
         out.print("<title>Resultado</title>");
         out.print("<meta charset=\"UTF-8\"/>");
+        out.println("<link rel='stylesheet' href='recursos/estilos.css'/>"+
+        "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous'>"+
+        "<script type='text/javascript' src='recursos/funciones.js'></script>");
         out.print("</head>");
-        out.print("<body>");
+        out.print("<body class='container-fluid'><div class='row  m-4 pt-5'><div class='col-6 text-center container'>");
 
         switch(action){
             case 1: 
@@ -37,8 +40,8 @@ public class Servlet extends HttpServlet{
                 out.print("<h2> b = "+ b + "</h2>");
                 out.print("<h2> c = "+ c + "</h2>");
                 out.print("<br>");
-                out.print("<h2> resultado 1 = "+ resultados.get(0) + "</h2>");
-                out.print("<h2> resultado 2 = "+ resultados.get(1) + "</h2>");
+                out.print("<h2> x 1 = "+ resultados.get(0) + "</h2>");
+                out.print("<h2> x 2 = "+ resultados.get(1) + "</h2>");
                 out.print(endTags);
             break;
             case 2: 
@@ -50,7 +53,7 @@ public class Servlet extends HttpServlet{
                     out.print(integer + "</br>");
                 }
 
-                out.print(endTags);
+                out.print("<p>" + endTags + "</p>");
                 break;
             case 3: 
                 double lA = Double.parseDouble(request.getParameter("ladoA"));

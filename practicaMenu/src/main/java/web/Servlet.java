@@ -3,7 +3,6 @@ package web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
@@ -54,23 +53,13 @@ public class Servlet extends HttpServlet{
                 out.print(endTags);
                 break;
             case 3: 
-                double ladoa = Double.parseDouble(request.getParameter("ladoa"));
-                double ladob = Double.parseDouble(request.getParameter("ladob"));
-                double ladoc = Double.parseDouble(request.getParameter("ladoc"));
+                double lA = Double.parseDouble(request.getParameter("ladoA"));
+                double lB = Double.parseDouble(request.getParameter("ladoB"));
+                double lC = Double.parseDouble(request.getParameter("ladoC"));
                 
-                String tipoTriangulo;
-                
-                if(ladoa == ladob && ladob == ladoc){
-                    tipoTriangulo = "Equilátero";
-                }else{
-                    if(ladoa == ladob || ladob == ladoc || ladoa == ladoc){
-                        tipoTriangulo = "Isóceles";
-                    }else{
-                        tipoTriangulo = "Escaleno";
-                    }
-                }
-                out.print("<h1>Tipo de Triángulo/h1>");
-                out.print("<h2>El triángulo es: "+tipoTriangulo+"</h2>");
+                String triangulo = tipoTriangulo(lA,lB,lC);
+                out.print("<h1>Tipo de Triángulo</h1>");
+                out.print("<h2>El triángulo es: "+triangulo+"</h2>");
                 out.print(endTags);
                 break;
             default:
@@ -111,5 +100,20 @@ public class Servlet extends HttpServlet{
             numero ++;
         }
         return numeros;
+    }
+
+    String tipoTriangulo(double a, double b, double c){
+        String tipoTriangulo = "";
+        if(a == b && b == c){
+            tipoTriangulo = "Equilátero";
+        }else{
+            if(a == b || b == c || a == c){
+                tipoTriangulo = "Isóceles";
+            }else{
+                tipoTriangulo = "Escaleno";
+            }
+        }
+
+        return  tipoTriangulo;
     }
 }

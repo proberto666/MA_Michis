@@ -7,6 +7,44 @@
         <script type="text/javascript" src="recursos/funciones.js"></script>
     </head>
     <body>
-        <h1>PRACTICA MENU OPCIONES</h1>
+        <form action="/parcticaMenu/Servlet" method="post">
+            <h1>PRACTICA MENU OPCIONES</h1>
+            &nbsp;&nbsp;
+            <h2> Menú</h2>
+            <input type="radio" name="opcion" value="1" > <label>Fórmula General</label>
+            &nbsp;&nbsp;
+            <input type="radio" name="opcion" value="2" > <label>Números primos</label>
+            &nbsp;&nbsp;
+            <input type="radio" name="opcion" value="3" > <label>Tipo de triángulo</label>
+            <br> <br>
+            <input type="button" value="Seleccionar"/>
+            <br> 
+            <br>
+            <br> 
+            <br>
+            <label >Fórmula general</label>
+            <br>
+            <input type="number" name="formulaGA" placeholder="Ingrese el valor de a" onfocus="this.select()"> &nbsp;&nbsp;
+            <input type="number" name="formulaGB" placeholder="Ingrese el valor de b" onfocus="this.select()"> &nbsp;&nbsp;
+            <input type="number" name="formulaGC" placeholder="Ingrese el valor de c" onfocus="this.select()"> &nbsp;&nbsp;
+            <br>
+            <br>
+            <br>
+            <br>
+            <label >Números Primos</label>
+            <br>
+            <input type="number" name="numero" placeholder="Ingrese total números" onfocus="this.select()"> &nbsp;&nbsp;
+            <br>
+            <br>
+            <br>
+            <br>
+            <label >Tipo de triángulo</label>
+            <br>
+            <input type="number" name="ladoA" placeholder="Ingrese lado a" onfocus="this.select()"> &nbsp;&nbsp;
+            <input type="number" name="ladoB" placeholder="Ingrese lado b" onfocus="this.select()"> &nbsp;&nbsp;
+            <input type="number" name="ladoC" placeholder="Ingrese lado c" onfocus="this.select()"> &nbsp;&nbsp;
+                       
+        </form>
+              
     </body>
 </html>

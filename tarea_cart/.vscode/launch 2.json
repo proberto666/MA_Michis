@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "request": "attach",
+            "hostName": "localhost",
+            "name": "payara-micro",
+            "port": 5005
+        }
+    ]
+}

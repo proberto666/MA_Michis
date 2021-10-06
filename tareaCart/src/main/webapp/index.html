@@ -2,12 +2,18 @@
 <html lang="es">
     <head>
         <title>Carrito</title>
+        <meta charset='UTF-8'/>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous'>
     </head>
-    <body>
-        <h1>Carrito</h1>
-        <form action="/tareaCart/CarritoServlet" method="post" name="formCompras">
-            Articulo a agregar: <input type="text" name="articulo"></br>
-            <input type="submit" value="enviar">
-        </form>
+    <body class="container-fluid">
+        <div class='row'>
+            <div class='container col-4 mt-5 p-3 box'>
+                <h1 class="text-center">Carrito</h1>
+                <form action="/tareaCart/CarritoServlet" class="text-center" method="post" name="formCompras">
+                    Articulo a agregar: <input type="text" class="form-control" name="articulo"></br>
+                    <input type="submit" class="btn btn-primary" value="enviar">
+                </form>
+            </div>
+        </div>
     </body>
 </html>

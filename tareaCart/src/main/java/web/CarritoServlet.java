@@ -79,16 +79,22 @@ public class CarritoServlet extends HttpServlet{
            
         }
         try(PrintWriter out = response.getWriter()){
-            out.print("<h1>Lista articulos</h1>");
+            String imports = "<meta charset='UTF-8'/>"+
+            "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous'>";
+            out.print("<html><head><title>En el carrito</title>"+imports+"</head><body class='container-fluid'>");
+           
+            out.println("<div class='row'><div class='container col-4 mt-5 p-3 box'>");
+        
+            out.print("<h1 class='text-center'>Lista articulos</h1>");
             out.print("</br>");
-            out.print("<table><thead><tr><th>Producto</th><th>Cantidad</th></tr></thead><tbody>");
+            out.print("<table class='table table-striped'><thead><tr><th class='text-center' scope='col'>Producto</th><th class='text-center' scope='col'>Cantidad</th></tr></thead><tbody>");
             
             for(Producto prod : aux){
-                out.print("<tr><td>");
+                out.print("<tr><td class='text-center' scope='row'>");
                 out.print(prod.getNombre()+"</td><td>"+prod.getCantidad()+"</tr>");
             }
             out.print("</tbody></table>");
-            out.print("<a href='/tareaCart'>Regresar a inicio</a>");
+            out.print("<a href='/tareaCart'>Regresar a inicio</a></div></div></body>");
         }
 
     }

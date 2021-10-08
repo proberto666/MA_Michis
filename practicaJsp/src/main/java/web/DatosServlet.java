@@ -35,7 +35,10 @@ public class DatosServlet extends HttpServlet{
         out.print("<h2>Nombre: "+nombre+"</h2>");
         out.print("<h2>Dirección: "+direccion+"</h2>");
         out.print("<h2>Teléfono: "+telefono+"</h2>");
-        out.print("<h2>Tecnologías: "+tecnologias+"</h2>");
+        for(int i=0; i<tecnologias.length ; i++)
+        {
+            out.print("<h2>Tecnología " + (i+1) + ": " + tecnologias[i] + "</h2>");
+        }
         out.print("<h2>Experiencia: "+xp+"</h2>");
         out.print("<h2>Estado Civil: "+estadoCivil+"</h2>");
         out.print("</div>");

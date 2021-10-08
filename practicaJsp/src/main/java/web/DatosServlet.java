@@ -24,6 +24,11 @@ public class DatosServlet extends HttpServlet{
         String tecnologias[] =  (String[]) sesion.getAttribute("tecnologias");
         String xp = (String) sesion.getAttribute("xp");
         String estadoCivil = request.getParameter("estado");
+        
+        String tecnologiasPrint = "";
+        for(int i = 0; i < tecnologias.length; i++) {
+            tecnologiasPrint+= tecnologias[i] + " ";
+        }
 
         out.print("<html>");
         out.print("<head>");
@@ -35,10 +40,7 @@ public class DatosServlet extends HttpServlet{
         out.print("<h2>Nombre: "+nombre+"</h2>");
         out.print("<h2>Dirección: "+direccion+"</h2>");
         out.print("<h2>Teléfono: "+telefono+"</h2>");
-        for(int i=0; i<tecnologias.length ; i++)
-        {
-            out.print("<h2>Tecnología " + (i+1) + ": " + tecnologias[i] + "</h2>");
-        }
+        out.print("<h2>Tecnología: " + tecnologiasPrint + "</h2>");
         out.print("<h2>Experiencia: "+xp+"</h2>");
         out.print("<h2>Estado Civil: "+estadoCivil+"</h2>");
         out.print("</div>");

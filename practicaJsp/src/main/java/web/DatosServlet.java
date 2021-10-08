@@ -12,12 +12,15 @@ public class DatosServlet extends HttpServlet{
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String nombre = request.getParameter("nombre");
-        String direccion = request.getParameter("direccion");
-        String telefono = request.getParameter("telefono");
+        HttpSession sesion = request.getSession();
+
+        String nombre = (String) sesion.getAttribute("name");
+        
+        String direccion = (String) sesion.getAttribute("direccion");
+        String telefono = (String) sesion.getAttribute("telefono");
         String tecnologias = request.getParameter("tecnologias");
         String experiencia = request.getParameter("experiencia");
-        String estadoCivil = request.getParameter("estadoCivil");
+        String estadoCivil = request.getParameter("estado");
 
         out.print("<html>");
         out.print("<head>");

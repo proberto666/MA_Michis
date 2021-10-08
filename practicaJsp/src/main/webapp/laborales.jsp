@@ -3,7 +3,6 @@
     Created on : 8/10/2021, 12:20:02 PM
     Author     : Mariroco
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +11,14 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            String name = request.getParameter("nombre");
+            String direccion=request.getParameter("direccion");
+            String telefono=request.getParameter("telefono");
+            session.setAttribute("name", name); 
+            session.setAttribute("direccion", direccion);
+            session.setAttribute("telefono", telefono);
+        %> 
         <h1>Datos laborales</h1>
         <form name="formLaboral" action="conyugales.jsp">
             <table  style="border-spacing: 25px">
@@ -54,6 +61,7 @@
                 </tr>
             </table>
             <br>
+            
             <input type="submit" value="Enviar"/>
         </form>
     </body>

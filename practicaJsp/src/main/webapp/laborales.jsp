@@ -30,10 +30,10 @@
                            </tr>
                            <tr>
                                <td>
-                                   .NET<input type="checkbox" name="net" value="1">
+                                   .NET<input type="checkbox" name="tecnologias" value=".net">
                                    <br>
-                                   JAVA<input type="checkbox" name="java" value="2"><br>
-                                   JAVASCRIPT<input type="checkbox" name="javascript" value="3"><br>
+                                   JAVA<input type="checkbox" name="tecnologias" value="java"><br>
+                                   JS<input type="checkbox" name="tecnologias" value="js"><br>
                                </td>
                            </tr>
                        </table>
@@ -47,11 +47,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <select name="años" multiple class="default">
-                                        <option value="1">0-3</option>
-                                        <option value="2">4-7</option>
-                                        <option value="3">8-11</option>
-                                        <option value="4">11+</option>
+                                    <select name="ex" multiple class="default">
+                                        <option value="0-3">0-3</option>
+                                        <option value="4-7">4-7</option>
+                                        <option value="8-11">8-11</option>
+                                        <option value="11+">11+</option>
                                     </select>
                                 </td>
                             </tr>

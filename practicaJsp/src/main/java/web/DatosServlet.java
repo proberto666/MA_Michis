@@ -1,6 +1,9 @@
 package web;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
@@ -18,8 +21,8 @@ public class DatosServlet extends HttpServlet{
         
         String direccion = (String) sesion.getAttribute("direccion");
         String telefono = (String) sesion.getAttribute("telefono");
-        String tecnologias = request.getParameter("tecnologias");
-        String experiencia = request.getParameter("experiencia");
+        String tecnologias[] =  (String[]) sesion.getAttribute("tecnologias");
+        String xp = (String) sesion.getAttribute("xp");
         String estadoCivil = request.getParameter("estado");
 
         out.print("<html>");
@@ -33,7 +36,7 @@ public class DatosServlet extends HttpServlet{
         out.print("<h2>Dirección: "+direccion+"</h2>");
         out.print("<h2>Teléfono: "+telefono+"</h2>");
         out.print("<h2>Tecnologías: "+tecnologias+"</h2>");
-        out.print("<h2>Experiencia: "+experiencia+"</h2>");
+        out.print("<h2>Experiencia: "+xp+"</h2>");
         out.print("<h2>Estado Civil: "+estadoCivil+"</h2>");
         out.print("</div>");
         out.print("</body>");

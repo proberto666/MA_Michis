@@ -12,6 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            String tecnologias[] = request.getParameterValues("tecnologias");
+            String xp=request.getParameter("ex");
+            session.setAttribute("tecnologias", tecnologias); 
+            session.setAttribute("xp", xp); 
+        %> 
         <h1>Datos conyugales</h1>
         <form name="formConyugal" action="/practicaJsp/DatosServlet">
             <div>

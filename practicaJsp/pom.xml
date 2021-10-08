@@ -5,7 +5,7 @@
     <artifactId>practicaJsp</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>practicaJsp-1.0</name>
+    <name>practicaJsp</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -26,6 +26,7 @@
     </dependencies>
     
      <build>
+     <finalName>practicaJsp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

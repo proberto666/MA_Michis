@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Datos conyugales</h1>
-        <form name="formConyugal" action="tablasdatos.jsp">
+        <form name="formConyugal" action="/practicaJsp/DatosServlet">
             <div>
                 <input type="radio" id="soltero" name="estado" value="soltero">
                 <label for="soltero">Soltero(a)</label><br>

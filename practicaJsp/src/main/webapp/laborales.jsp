@@ -27,10 +27,6 @@
                                    <br>
                                    JAVA<input type="checkbox" name="java" value="2"><br>
                                    JAVASCRIPT<input type="checkbox" name="javascript" value="3"><br>
-                                   HTML<input type="checkbox" name="html" value="4"><br>
-                                   KOTLIN<input type="checkbox" name="kotlin" value="5"><br>
-                                   C++<input type="checkbox" name="cplusplus" value="6"><br>
-                                   C#<input type="checkbox" name="csharp" value="7"><br>
                                </td>
                            </tr>
                        </table>

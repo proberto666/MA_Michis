@@ -5,7 +5,7 @@
     <artifactId>HotelMLLC</artifactId>
     <version>1</version>
     <packaging>war</packaging>
-    <name>HotelMLLC-1</name>
+    <name>HotelMLLC</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -26,6 +26,7 @@
     </dependencies>
     
      <build>
+     <finalName>HotelMLLC</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

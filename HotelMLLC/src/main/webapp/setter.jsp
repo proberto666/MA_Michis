@@ -8,9 +8,9 @@
     <body>
         <h1>Seleccionar habitación</h1>
         <jsp:useBean id="habitacion" class="beans.habitacion" scope="application"/>
-        <form action="index.jsp">
+        <form action="confirmacion.jsp">
             <select class="form-control" name="habitaciones" id="select_habitaciones">
-                <option value="">--Seleccione una habitacion</option>
+                <option value="">--Seleccione una habitacion--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -22,16 +22,9 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
+            
             <input type="submit" value="Enviar"/>
         </form>
-        
-
         </br>
-        <% 
-            int numHabitación = request.getParameter("habitacion");
-            boolean disponible = false;
-        %>
-        <jsp:setProperty name="habitacion" property="numero" value="<%=numHabitación%>"/>
-        <jsp:setProperty name="habitacion" property="disponible" value="<%=disponible%>"/>
     </body>
 </html>

@@ -19,5 +19,6 @@
         <td>x</td>
         <% } } %>
         </table>
+        <a href="index.jsp">Regresar al menú principal</a>
     </body>
 </html>

@@ -13,6 +13,15 @@ import java.util.ArrayList;
  */
 public class hotel {
    ArrayList<habitacion> hotel = new ArrayList<habitacion>();
+
+    public ArrayList<habitacion> getHotel() {
+        return this.hotel;
+    }
+
+    public void setHotel(ArrayList<habitacion> hotel) {
+        this.hotel = hotel;
+    }
+   
    public hotel(){
         for(int i = 0; i<10; i++){
             habitacion temp = new habitacion(i+1,true);

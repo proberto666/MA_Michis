@@ -7,7 +7,6 @@
     </head>
     <body>
         <h1>Seleccionar habitación</h1>
-        <jsp:useBean id="habitacion" class="beans.habitacion" scope="application"/>
         <form action="confirmacion.jsp">
             <select class="form-control" name="habitaciones" id="select_habitaciones">
                 <option value="">--Seleccione una habitacion--</option>

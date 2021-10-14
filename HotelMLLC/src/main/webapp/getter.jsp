@@ -1,11 +1,23 @@
 <!DOCTYPE html>
+<%@ page import="beans.habitacion" %>
 <html>
     <head>
         <title>
-            JSP Page
+            Consulta habitaciones disponibles
         </title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:useBean id="hotel" class="beans.hotel" scope="application"/>
+        <h1>Habitaciones disponibles</h1>
+        <table>
+        <%
+        for(habitacion H:hotel.getHotel()){
+            if(H.getDisponible()){
+        %>
+        <td>o</td>
+        <% }else{ %>
+        <td>x</td>
+        <% } } %>
+        </table>
     </body>
 </html>

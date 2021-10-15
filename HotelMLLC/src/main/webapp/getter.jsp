@@ -2,23 +2,24 @@
 <%@ page import="beans.habitacion" %>
 <html>
     <head>
-        <title>
-            Consulta habitaciones disponibles
-        </title>
+        <title>Consulta habitaciones disponibles</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
     <body>
         <jsp:useBean id="hotel" class="beans.hotel" scope="application"/>
-        <h1>Habitaciones disponibles</h1>
+         <label class="tituloHotel"> Hotel MLLC</label>
+        <h1 class="subtitulo">Habitaciones disponibles</h1>
         <table>
         <%
         for(habitacion H:hotel.getHotel()){
             if(H.getDisponible()){
         %>
-        <td>o</td>
+        <td class="noreservada"><%=H.getNumero()%></td>
         <% }else{ %>
-        <td>x</td>
+        <td class="reservada"> <%= H.getNumero()%></td>
         <% } } %>
         </table>
-        <a href="index.jsp">Regresar al menú principal</a>
+        <br>
+        <a href="index.jsp">Regresar al menu principal</a>
     </body>
 </html>

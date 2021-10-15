@@ -1,0 +1,60 @@
+body{
+    font-family: system-ui !important;
+    text-align: center !important;
+}
+
+a{
+    font-size: 1.1em;
+    color: #005757;
+}
+.tituloPrincipal{
+    font-size: 3em;
+    color: #003D79;
+    font-weight: bold;
+    margin-bottom: 0.1em;
+}
+
+.tituloHotel{
+    font-size: 0.95em;
+    color: #005757;
+}
+
+.subtitulo{
+    font-size: 2.5em;
+    color: #003D79;
+}
+
+.select {
+  min-width: 5ch;
+  max-width: 30ch;
+  text-align: center;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.1em;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #E4F4FD;
+}
+table{
+    padding-left: 5em;
+    text-align:center;
+    align-items: center;
+}
+
+td{
+    border: 1px solid black;
+    width: 8em;
+    height : 2em;   
+    font-family: system-ui !important;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.reservada{
+    background-color: #bc544b;
+}
+
+.noreservada{
+     background-color: #5DBB63;
+}

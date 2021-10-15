@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            JSP Page
-        </title>
+        <title>Nueva Reservacion</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Seleccionar habitación</h1>
-        <jsp:useBean id="habitacion" class="beans.habitacion" scope="application"/>
+        <label class="tituloHotel"> Hotel MLLC</label>
+        <h1 class="subtitulo">Seleccionar habitacion</h1>
         <form action="confirmacion.jsp">
-            <select class="form-control" name="habitaciones" id="select_habitaciones">
+            <select class="select" name="habitaciones" id="select_habitaciones">
                 <option value="">--Seleccione una habitacion--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -23,7 +23,7 @@
                 <option value="10">10</option>
             </select>
             
-            <input type="submit" value="Enviar"/>
+            <input class="btn btn-outline-info" type="submit" value="Enviar"/>
         </form>
         </br>
     </body>

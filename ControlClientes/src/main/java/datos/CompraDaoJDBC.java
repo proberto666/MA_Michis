@@ -7,6 +7,8 @@ import java.util.*;
 
 public class CompraDaoJDBC {
     private static final String SQL_SELECT_BY_ID_COMPRA = "SELECT * FROM compra WHERE id_compra";
+    
+    private static final String SQL_SELECT = "SELECT * FROM compra";
 
     private static final String SQL_SELECT_BY_ID_CLIENTE = "SELECT * FROM compra WHERE id_cliente";
 
@@ -16,7 +18,7 @@ public class CompraDaoJDBC {
     
     private static final String SQL_DELETE = "DELETE FROM compra WHERE id_compra = ?";
     
-    public List<Compra> listarCompras() {
+    public List<Compra> listarComprasPorId() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -25,6 +27,34 @@ public class CompraDaoJDBC {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID_CLIENTE);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int idCompra = rs.getInt("id_compra");
+                int idCliente = rs.getInt("id_cliente");
+                double monto = rs.getDouble("monto");
+
+                compra = new Compra(idCompra, idCliente, monto);
+                compras.add(compra);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return compras;
+    }
+    
+    public List<Compra> listarCompras() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Compra compra = null;
+        List<Compra> compras = new ArrayList<>();
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int idCompra = rs.getInt("id_compra");

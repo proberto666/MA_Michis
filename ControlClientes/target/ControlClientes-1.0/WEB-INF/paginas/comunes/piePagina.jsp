@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col">
             <p class="lead text-center">
-                Copyright &copy; www.miguel-gomez.org
+                Copyright &copy; ASDF
             </p>
         </div>
     </div>

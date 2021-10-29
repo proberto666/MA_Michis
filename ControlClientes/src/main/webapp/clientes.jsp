@@ -15,11 +15,6 @@
         <title>Control de Clientes</title>
     </head>
     <body>
-        <!-- Prueba de listado clientes -->
-        <h1>Control de Clientes</h1>
-        <c:forEach var="cliente" items="${clientes}">
-        <li>${cliente.idCliente} ${cliente.nombre} ${cliente.saldo}</li>            
-        </c:forEach>  
     <!--Cabecero-->
     <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp"/>
 

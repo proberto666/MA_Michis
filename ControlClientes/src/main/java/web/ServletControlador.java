@@ -31,6 +31,8 @@ public class ServletControlador extends HttpServlet {
                 case "eliminar":
                     this.eliminarCliente(request, response);
                     break;
+                case "compras":
+                    //Aquí va el método
                 default:
                     this.accionDefault(request, response);
             }

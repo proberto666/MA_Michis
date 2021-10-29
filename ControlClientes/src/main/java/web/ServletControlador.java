@@ -1,7 +1,9 @@
 package web;
 
 import datos.ClienteDaoJDBC;
+import datos.CompraDaoJDBC;
 import dominio.Cliente;
+import dominio.Compra;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -28,6 +30,9 @@ public class ServletControlador extends HttpServlet {
                 case "editar":
                     this.editarCliente(request, response);
                     break;
+                case "editarCompra":
+                    this.editarCompra(request, response);
+                    break;
                 case "eliminar":
                     this.eliminarCliente(request, response);
                     break;
@@ -52,6 +57,26 @@ public class ServletControlador extends HttpServlet {
         request.getRequestDispatcher("clientes.jsp").forward(request, response);
         response.sendRedirect("clientes.jsp");
     }
+    
+    private void listadoComprasGeneral(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Compra> compras = new CompraDaoJDBC().listarCompras();
+        System.out.println("compras = " + compras);
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("compras", compras);
+        sesion.setAttribute("totalCompras", compras.size());
+        sesion.setAttribute("saldoTotal", this.calcularMontoTotal(compras));
+        request.getRequestDispatcher("compras.jsp").forward(request, response);
+        response.sendRedirect("compras.jsp");
+    }
+    
+    private double calcularMontoTotal(List<Compra> compras) {
+        double montoTotal = 0;
+        for (Compra compra : compras) {
+            montoTotal += compra.getMonto();
+        }
+        return montoTotal;
+    }
 
     private double calcularSaldoTotal(List<Cliente> clientes) {
         double saldoTotal = 0;
@@ -67,6 +92,17 @@ public class ServletControlador extends HttpServlet {
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         Cliente cliente = new ClienteDaoJDBC().encontrar(new Cliente(idCliente));
         request.setAttribute("cliente", cliente);
+        String jspEditar = "/WEB-INF/paginas/cliente/editarCliente.jsp";
+        // se crea ruta para navegar y que despecha el servlet
+        request.getRequestDispatcher(jspEditar).forward(request, response);
+    }
+    
+    private void editarCompra(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //recuperamos el idCompra
+        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
+        Compra compra = new CompraDaoJDBC().encontrarCompra(new Compra(idCompra));
+        request.setAttribute("compra", compra);
         String jspEditar = "/WEB-INF/paginas/cliente/editarCliente.jsp";
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);

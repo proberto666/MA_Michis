@@ -84,14 +84,14 @@ public class CompraDaoJDBC {
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID_COMPRA);
             stmt.setInt(1, compra.getId_compra());
             rs = stmt.executeQuery();
-            rs.absolute(1);//nos posicionamos en el primer registro devuelto
-
+            
+            if(rs.next()){
             int idCliente = rs.getInt("id_cliente");
             double monto = rs.getDouble("monto");
 
             compra.setId_cliente(idCliente);
             compra.setMonto(monto);
-
+            }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {

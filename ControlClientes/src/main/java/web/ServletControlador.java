@@ -38,12 +38,6 @@ public class ServletControlador extends HttpServlet {
                 case "eliminarCompra":
                     this.eliminarCompra(request, response);
                     break;
-                case "encontrarMin":
-                    this.eliminarCompra(request, response);
-                    break;
-                case "encontrarMax":
-                    this.eliminarCompra(request, response);
-                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -55,11 +49,16 @@ public class ServletControlador extends HttpServlet {
     private void accionDefault(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Cliente> clientes = new ClienteDaoJDBC().listar();
+        for (Cliente cliente : clientes){
+            this.calcularSaldoCliente(cliente);
+        }
         System.out.println("clientes = " + clientes);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("clientes", clientes);
         sesion.setAttribute("totalClientes", clientes.size());
         sesion.setAttribute("saldoTotal", this.calcularSaldoTotal(clientes));
+        sesion.setAttribute("clienteMax", this.maximoDeuda(clientes));
+        sesion.setAttribute("clienteMin", this.minimoDeuda(clientes));
         request.getRequestDispatcher("clientes.jsp").forward(request, response);
         response.sendRedirect("clientes.jsp");
     }
@@ -67,13 +66,16 @@ public class ServletControlador extends HttpServlet {
     private void listadoComprasGeneral(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Compra> compras = new CompraDaoJDBC().listarCompras();
-        System.out.println("compras = " + compras);
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("compras", compras);
-        sesion.setAttribute("totalCompras", compras.size());
-        sesion.setAttribute("montoTotal", this.calcularMontoTotal(compras));
-        request.getRequestDispatcher("compras.jsp").forward(request, response);
-        response.sendRedirect("compras.jsp");
+        
+            System.out.println("compras = " + compras);
+            HttpSession sesion = request.getSession();
+            sesion.setAttribute("compras", compras);
+            sesion.setAttribute("totalCompras", compras.size());
+            sesion.setAttribute("montoTotal", this.calcularMontoTotal(compras));
+            request.getRequestDispatcher("compras.jsp").forward(request, response);
+            response.sendRedirect("compras.jsp");
+        
+        
     }
     
     private double calcularMontoTotal(List<Compra> compras) {
@@ -90,6 +92,19 @@ public class ServletControlador extends HttpServlet {
             saldoTotal += cliente.getSaldo();
         }
         return saldoTotal;
+    }
+    
+    private void calcularSaldoCliente(Cliente cliente){
+        double saldoTotal = 0;
+        List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(cliente);
+        for(Compra compra: compras){
+            if(cliente.getIdCliente() == compra.getId_cliente()){
+                saldoTotal+=compra.getMonto();
+            }
+        }
+        cliente.setSaldo(saldoTotal);
+        int registrosModificados = new ClienteDaoJDBC().actualizar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
     }
 
     private void editarCliente(HttpServletRequest request, HttpServletResponse response)
@@ -112,11 +127,6 @@ public class ServletControlador extends HttpServlet {
         String jspEditar = "/WEB-INF/paginas/compra/editarCompra.jsp";
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);
-    }
-    
-    private void encontrarMin(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Cliente cliente = new ClienteDaoJDBC().encontrarMin(new Cliente());
     }
     
     @Override
@@ -235,7 +245,7 @@ public class ServletControlador extends HttpServlet {
     private void getComprasCliente(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
-         List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(new Cliente(idCliente));
+        List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(new Cliente(idCliente));
         System.out.println("compras = " + compras);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("compras", compras);
@@ -266,8 +276,42 @@ public class ServletControlador extends HttpServlet {
         Compra compra = new Compra(idCliente, monto);
         int registrosModificados = new CompraDaoJDBC().insertarCompra(compra);
         System.out.println("registrosAgregados = " + registrosModificados);
- 
         this.accionDefault(request, response);
     }
     
+    private String maximoDeuda(List<Cliente> clientes){
+        Double saldo = 0.0;
+        Cliente clienteAux = new Cliente();
+        for(Cliente cliente:clientes){
+            if(cliente.getSaldo()>saldo){
+                saldo = cliente.getSaldo();
+                clienteAux=cliente;
+            }
+        }
+         String nombre = clienteAux.getNombre()+ " " + clienteAux.getApellido();
+        
+        if(clienteAux.getNombre()==""|| clienteAux.getNombre()==null){
+            nombre = "Los clientes no tienen deudas";
+        }
+        
+        return nombre;
+    }
+    
+    private String minimoDeuda(List<Cliente> clientes){
+        Double saldo = clientes.get(0).getSaldo();
+        Cliente clienteAux = new Cliente();
+        for(Cliente cliente:clientes){
+            if(cliente.getSaldo()<saldo){
+                saldo=cliente.getSaldo();
+                clienteAux = cliente;
+            }
+        }
+        String nombre = clienteAux.getNombre()+ " " + clienteAux.getApellido();
+        
+        if(clienteAux.getNombre()=="" || clienteAux.getNombre()==null){
+            nombre = "Los clientes no tienen deudas";
+        }
+        
+        return nombre;
+    }
 }

@@ -9,6 +9,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Listado de Clientes</h4>
+                            <h5>Min: ${clienteMin}</h5>
+                            <h5>Max: ${clienteMax}</h5>
                     </div>
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -24,7 +26,7 @@
                             <!-- Iteramos cada elemento de la lista de clientes -->
                             <c:forEach var="cliente" items="${clientes}" varStatus="status" >
                                 <tr>
-                                    <td>${status.count}</td>
+                                    <td>${cliente.idCliente}</td>
                                     <td>${cliente.nombre} ${cliente.apellido}</td>
                                     
                                     <%--Agregamos conversión de numero a moneda--%>

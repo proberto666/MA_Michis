@@ -23,8 +23,8 @@
                             <!-- Iteramos cada elemento de la lista de compras -->
                             <c:forEach var="compra" items="${compras}" varStatus="status" >
                                 <tr>
-                                    <td>${status.count}</td>
                                     <td>${compra.id_compra}</td>
+                                    <td>${compra.id_cliente}</td>
                                     
                                     <%--Agregamos conversión de numero a moneda--%>
                                     <td> <fmt:formatNumber value="${compra.monto}" type="currency"/> </td>

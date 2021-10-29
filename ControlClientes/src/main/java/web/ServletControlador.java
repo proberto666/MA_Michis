@@ -35,6 +35,9 @@ public class ServletControlador extends HttpServlet {
                 case "comprasGeneral":
                     this.listadoComprasGeneral(request, response);
                     break;
+                case "compraXId":
+                    this.getCompraXId(request, response);
+                    break;
                 case "eliminarCompra":
                     this.eliminarCompra(request, response);
                     break;
@@ -55,6 +58,9 @@ public class ServletControlador extends HttpServlet {
     private void accionDefault(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Cliente> clientes = new ClienteDaoJDBC().listar();
+        for (Cliente cliente : clientes){
+            this.calcularSaldoCliente(cliente);
+        }
         System.out.println("clientes = " + clientes);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("clientes", clientes);
@@ -90,6 +96,19 @@ public class ServletControlador extends HttpServlet {
             saldoTotal += cliente.getSaldo();
         }
         return saldoTotal;
+    }
+    
+    private void calcularSaldoCliente(Cliente cliente){
+        double saldoTotal = 0;
+        List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(cliente);
+        for(Compra compra: compras){
+            if(cliente.getIdCliente() == compra.getId_cliente()){
+                saldoTotal+=compra.getMonto();
+            }
+        }
+        cliente.setSaldo(saldoTotal);
+        int registrosModificados = new ClienteDaoJDBC().actualizar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
     }
 
     private void editarCliente(HttpServletRequest request, HttpServletResponse response)
@@ -235,7 +254,7 @@ public class ServletControlador extends HttpServlet {
     private void getComprasCliente(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
-         List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(new Cliente(idCliente));
+        List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(new Cliente(idCliente));
         System.out.println("compras = " + compras);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("compras", compras);
@@ -266,8 +285,6 @@ public class ServletControlador extends HttpServlet {
         Compra compra = new Compra(idCliente, monto);
         int registrosModificados = new CompraDaoJDBC().insertarCompra(compra);
         System.out.println("registrosAgregados = " + registrosModificados);
- 
         this.accionDefault(request, response);
     }
-    
 }

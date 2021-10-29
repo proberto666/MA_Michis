@@ -102,10 +102,10 @@ public class ServletControlador extends HttpServlet {
     private void editarCompra(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //recuperamos el idCompra
-        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
+        int idCompra = Integer.parseInt(request.getParameter("id_compra"));
         Compra compra = new CompraDaoJDBC().encontrarCompra(new Compra(idCompra));
         request.setAttribute("compra", compra);
-        String jspEditar = "/WEB-INF/paginas/cliente/editarCliente.jsp";
+        String jspEditar = "/WEB-INF/paginas/cliente/editarCompra.jsp";
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
@@ -122,6 +122,8 @@ public class ServletControlador extends HttpServlet {
                 case "modificar":
                     this.modificarCliente(request, response);
                     break;
+                case "modificarCompra":
+                    this.modificarCompra(request, response);
                 default:
                     this.accionDefault(request, response);
             }
@@ -173,6 +175,28 @@ public class ServletControlador extends HttpServlet {
 
         //Modificar el  objeto en la base de datos
         int registrosModificados = new ClienteDaoJDBC().actualizar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    private void modificarCompra(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //recuperamos los valores del formulario editarCompra
+        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+        double monto = 0;
+        String montoString = request.getParameter("monto");
+        if (montoString != null && !"".equals(montoString)) {
+            monto = Double.parseDouble(montoString);
+        }
+
+        //Creamos el objeto de cliente (modelo)
+        Compra compra = new Compra(idCompra, idCliente, monto);
+
+        //Modificar el  objeto en la base de datos
+        int registrosModificados = new CompraDaoJDBC().actualizarCompra(compra);
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default

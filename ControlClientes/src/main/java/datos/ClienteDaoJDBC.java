@@ -19,6 +19,10 @@ public class ClienteDaoJDBC {
             + " SET nombre=?, apellido=?, email=?, telefono=?, saldo=? WHERE id_cliente=?";
 
     private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente = ?";
+    
+    private static final String SQL_MIN = "SELECT * FROM cliente WHERE saldo = (SELECT MIN(saldo) FROM cliente)";
+    
+    private static final String SQL_MAX = "SELECT * FROM cliente WHERE saldo = (SELECT MAX(saldo) FROM cliente)";
 
     public List<Cliente> listar() {
         Connection conn = null;
@@ -150,4 +154,69 @@ public class ClienteDaoJDBC {
         return rows;
     }
 
+    public Cliente encontrarMin(Cliente cliente) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_MIN);
+            stmt.setInt(1, cliente.getIdCliente());
+            rs = stmt.executeQuery();
+            rs.absolute(1);//nos posicionamos en el primer registro devuelto
+
+            String nombre = rs.getString("nombre");
+            String apellido = rs.getString("apellido");
+            String email = rs.getString("email");
+            String telefono = rs.getString("telefono");
+            double saldo = rs.getDouble("saldo");
+
+            cliente.setNombre(nombre);
+            cliente.setApellido(apellido);
+            cliente.setEmail(email);
+            cliente.setTelefono(telefono);
+            cliente.setSaldo(saldo);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return cliente;
+    }
+    
+    public Cliente encontrarMax(Cliente cliente) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_MAX);
+            stmt.setInt(1, cliente.getIdCliente());
+            rs = stmt.executeQuery();
+            rs.absolute(1);//nos posicionamos en el primer registro devuelto
+
+            String nombre = rs.getString("nombre");
+            String apellido = rs.getString("apellido");
+            String email = rs.getString("email");
+            String telefono = rs.getString("telefono");
+            double saldo = rs.getDouble("saldo");
+
+            cliente.setNombre(nombre);
+            cliente.setApellido(apellido);
+            cliente.setEmail(email);
+            cliente.setTelefono(telefono);
+            cliente.setSaldo(saldo);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return cliente;
+    }
 }

@@ -120,8 +120,12 @@ public class ServletControlador extends HttpServlet {
                 case "modificar":
                     this.modificarCliente(request, response);
                     break;
+                case "insertarCompra":
+                    this.insertarCompra(request, response);
+                    break;
                 case "modificarCompra":
                     this.modificarCompra(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -236,6 +240,22 @@ public class ServletControlador extends HttpServlet {
         Compra compra = new Compra(id_compra);
         int registrosModificados = new CompraDaoJDBC().eliminarCompra(compra);
         System.out.println("registrosModificados = " + registrosModificados);
+        this.accionDefault(request, response);
+    }
+    
+    private void insertarCompra(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+ 
+        double monto = 0;
+        String montostr = request.getParameter("monto");
+        if (montostr != null && !"".equals(montostr)) {
+            monto = Double.parseDouble(montostr);
+        }
+        Compra compra = new Compra(idCliente, monto);
+        int registrosModificados = new CompraDaoJDBC().insertarCompra(compra);
+        System.out.println("registrosAgregados = " + registrosModificados);
+ 
         this.accionDefault(request, response);
     }
     

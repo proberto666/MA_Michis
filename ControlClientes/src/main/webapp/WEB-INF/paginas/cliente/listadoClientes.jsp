@@ -9,6 +9,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Listado de Clientes</h4>
+                            <h5>Min: ${clienteMin}</h5>
+                            <h5>Max: ${clienteMax}</h5>
                     </div>
                     <table class="table table-striped">
                         <thead class="thead-dark">

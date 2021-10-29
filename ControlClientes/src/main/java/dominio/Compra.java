@@ -18,6 +18,11 @@ public class Compra {
         this.id_cliente = id_cliente;
         this.monto = monto;
     }
+    
+    public Compra(int id_compra, double monto, boolean redFlag) {
+        this.id_compra = id_compra;
+        this.monto = monto;
+    }
 
     public Compra(int id_compra) {
         this.id_compra = id_compra;

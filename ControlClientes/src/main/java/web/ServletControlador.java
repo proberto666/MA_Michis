@@ -67,7 +67,7 @@ public class ServletControlador extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("compras", compras);
         sesion.setAttribute("totalCompras", compras.size());
-        sesion.setAttribute("saldoTotal", this.calcularMontoTotal(compras));
+        sesion.setAttribute("montoTotal", this.calcularMontoTotal(compras));
         request.getRequestDispatcher("compras.jsp").forward(request, response);
         response.sendRedirect("compras.jsp");
     }

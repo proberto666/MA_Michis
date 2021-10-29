@@ -1,6 +1,6 @@
-datos\CompraDaoJDBC.class
-web\ServletControlador.class
-dominio\Compra.class
-dominio\Cliente.class
-datos\ClienteDaoJDBC.class
-datos\Conexion.class
+datos/CompraDaoJDBC.class
+web/ServletControlador.class
+dominio/Compra.class
+datos/ClienteDaoJDBC.class
+datos/Conexion.class
+dominio/Cliente.class

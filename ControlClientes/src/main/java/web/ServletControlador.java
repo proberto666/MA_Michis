@@ -17,13 +17,6 @@ public class ServletControlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-// Listado de clientes sencillo
-//        List<Cliente> clientes = new ClienteDaoJDBC().listar();
-//        System.out.println("clientes = "+clientes);
-//        request.setAttribute("clientes", clientes);
-//        request.getRequestDispatcher("clientes.jsp").forward(request, response);
-//    }
-//}
         String accion = request.getParameter("accion");
         if (accion != null) {
             switch (accion) {
@@ -37,9 +30,14 @@ public class ServletControlador extends HttpServlet {
                     this.eliminarCliente(request, response);
                     break;
                 case "compras":
-                    //Aquí va el método
+                    this.getComprasCliente(request, response);
+                    break;
                 case "comprasGeneral":
                     this.listadoComprasGeneral(request, response);
+                    break;
+                case "eliminarCompra":
+                    this.eliminarCompra(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -109,7 +107,7 @@ public class ServletControlador extends HttpServlet {
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -205,6 +203,8 @@ public class ServletControlador extends HttpServlet {
     
         private void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    private void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
         //recuperamos los valores del formulario editarCliente
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
      
@@ -219,5 +219,27 @@ public class ServletControlador extends HttpServlet {
         //Redirigimos hacia accion por default
         this.accionDefault(request, response);
     }
+        
+    private void getComprasCliente(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+         List<Compra> compras = new CompraDaoJDBC().listarComprasPorId(new Cliente(idCliente));
+        System.out.println("compras = " + compras);
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("compras", compras);
+        sesion.setAttribute("totalCompras", compras.size());
+        sesion.setAttribute("montoTotal", this.calcularMontoTotal(compras));
+        request.getRequestDispatcher("compras.jsp").forward(request, response);
+        response.sendRedirect("compras.jsp");
+    }
 
+    private void eliminarCompra(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        int idCompra = Integer.parseInt(request.getParameter("id_compra"));
+        Compra compra = new Compra(idCompra);
+        int registrosModificados = new CompraDaoJDBC().eliminarCompra(compra);
+        System.out.println("registrosModificados = " + registrosModificados);
+        this.accionDefault(request, response);
+    }
+    
 }

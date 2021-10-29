@@ -6,11 +6,11 @@ import java.sql.*;
 import java.util.*;
 
 public class CompraDaoJDBC {
-    private static final String SQL_SELECT_BY_ID_COMPRA = "SELECT * FROM compra WHERE id_compra";
+    private static final String SQL_SELECT_BY_ID_COMPRA = "SELECT * FROM compra WHERE id_compra=?";
     
     private static final String SQL_SELECT = "SELECT * FROM compra";
 
-    private static final String SQL_SELECT_BY_ID_CLIENTE = "SELECT * FROM compra WHERE id_cliente";
+    private static final String SQL_SELECT_BY_ID_CLIENTE = "SELECT * FROM compra WHERE id_cliente=?";
 
     private static final String SQL_INSERT = "INSERT INTO compra(id_cliente, monto) VALUES(?, ?)";
 
@@ -18,7 +18,7 @@ public class CompraDaoJDBC {
     
     private static final String SQL_DELETE = "DELETE FROM compra WHERE id_compra = ?";
     
-    public List<Compra> listarComprasPorId() {
+    public List<Compra> listarComprasPorId(Cliente cliente) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -27,6 +27,7 @@ public class CompraDaoJDBC {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID_CLIENTE);
+            stmt.setInt(1, cliente.getIdCliente());
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int idCompra = rs.getInt("id_compra");

@@ -36,7 +36,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}"
+                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=compras&idCliente=${cliente.idCliente}"
                                            class="btn btn-secondary">
                                             <i class="fas fa-angle-double-right"></i> Compras
                                         </a>

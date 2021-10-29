@@ -31,8 +31,13 @@ public class ServletControlador extends HttpServlet {
                     break;
                 case "compras":
                     this.getComprasCliente(request, response);
+                    break;
                 case "comprasGeneral":
                     this.listadoComprasGeneral(request, response);
+                    break;
+                case "eliminarCompra":
+                    this.eliminarCompra(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -202,4 +207,13 @@ public class ServletControlador extends HttpServlet {
         response.sendRedirect("compras.jsp");
     }
 
+    private void eliminarCompra(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        int idCompra = Integer.parseInt(request.getParameter("id_compra"));
+        Compra compra = new Compra(idCompra);
+        int registrosModificados = new CompraDaoJDBC().eliminarCompra(compra);
+        System.out.println("registrosModificados = " + registrosModificados);
+        this.accionDefault(request, response);
+    }
+    
 }

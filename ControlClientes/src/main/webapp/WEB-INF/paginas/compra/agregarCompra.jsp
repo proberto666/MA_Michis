@@ -8,17 +8,17 @@
                 </button>
             </div>
             
-            <form action="${pageContext.request.contextPath}/ServletControlador?accion=insertar"
+            <form action="${pageContext.request.contextPath}/ServletControlador?accion=insertarCompra"
                   method="POST" class="was-validated">
                 
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nombre">Cliente</label>
-                        <input type="number" class="form-control" name="nombre" required>
+                        <input type="number" class="form-control" name="idCliente" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido">Monto</label>
-                        <input type="number" class="form-control" name="apellido" required>
+                        <input type="number" class="form-control" name="monto" required>
                     </div>
                 </div>
                 <div class="modal-footer">

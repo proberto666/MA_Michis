@@ -14,7 +14,7 @@
 
         <title>Control de Clientes</title>
     </head>
-    <body>
+    <body class="mb-5 pb-5">
     <!--Cabecero-->
     <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp"/>
 

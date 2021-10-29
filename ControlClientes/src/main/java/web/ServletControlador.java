@@ -100,10 +100,10 @@ public class ServletControlador extends HttpServlet {
     private void editarCompra(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //recuperamos el idCompra
-        int idCompra = Integer.parseInt(request.getParameter("id_compra"));
+        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
         Compra compra = new CompraDaoJDBC().encontrarCompra(new Compra(idCompra));
         request.setAttribute("compra", compra);
-        String jspEditar = "/WEB-INF/paginas/cliente/editarCompra.jsp";
+        String jspEditar = "/WEB-INF/paginas/compra/editarCompra.jsp";
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
@@ -120,8 +120,12 @@ public class ServletControlador extends HttpServlet {
                 case "modificar":
                     this.modificarCliente(request, response);
                     break;
+                case "insertarCompra":
+                    this.insertarCompra(request, response);
+                    break;
                 case "modificarCompra":
                     this.modificarCompra(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -201,8 +205,6 @@ public class ServletControlador extends HttpServlet {
         this.accionDefault(request, response);
     }
     
-        private void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
     private void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         //recuperamos los valores del formulario editarCliente
@@ -239,6 +241,22 @@ public class ServletControlador extends HttpServlet {
         Compra compra = new Compra(idCompra);
         int registrosModificados = new CompraDaoJDBC().eliminarCompra(compra);
         System.out.println("registrosModificados = " + registrosModificados);
+        this.accionDefault(request, response);
+    }
+    
+    private void insertarCompra(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+ 
+        double monto = 0;
+        String montostr = request.getParameter("monto");
+        if (montostr != null && !"".equals(montostr)) {
+            monto = Double.parseDouble(montostr);
+        }
+        Compra compra = new Compra(idCliente, monto);
+        int registrosModificados = new CompraDaoJDBC().insertarCompra(compra);
+        System.out.println("registrosAgregados = " + registrosModificados);
+ 
         this.accionDefault(request, response);
     }
     

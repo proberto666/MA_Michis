@@ -109,7 +109,9 @@ public class CompraDaoJDBC {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setDouble(1, compra.getMonto());
+            stmt.setInt(1, compra.getId_cliente());
+            stmt.setDouble(2, compra.getMonto());
+       
 
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {

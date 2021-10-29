@@ -299,7 +299,7 @@ public class ServletControlador extends HttpServlet {
     
     private String minimoDeuda(List<Cliente> clientes){
         Double saldo = clientes.get(0).getSaldo();
-        Cliente clienteAux = new Cliente();
+        Cliente clienteAux = clientes.get(0);
         for(Cliente cliente:clientes){
             if(cliente.getSaldo()<saldo){
                 saldo=cliente.getSaldo();

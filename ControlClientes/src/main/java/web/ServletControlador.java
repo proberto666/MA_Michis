@@ -38,6 +38,12 @@ public class ServletControlador extends HttpServlet {
                 case "eliminarCompra":
                     this.eliminarCompra(request, response);
                     break;
+                case "encontrarMin":
+                    this.eliminarCompra(request, response);
+                    break;
+                case "encontrarMax":
+                    this.eliminarCompra(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -106,6 +112,11 @@ public class ServletControlador extends HttpServlet {
         String jspEditar = "/WEB-INF/paginas/compra/editarCompra.jsp";
         // se crea ruta para navegar y que despecha el servlet
         request.getRequestDispatcher(jspEditar).forward(request, response);
+    }
+    
+    private void encontrarMin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Cliente cliente = new ClienteDaoJDBC().encontrarMin(new Cliente());
     }
     
     @Override

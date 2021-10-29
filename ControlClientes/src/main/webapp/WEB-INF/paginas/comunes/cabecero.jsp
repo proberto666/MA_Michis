@@ -12,7 +12,7 @@
                 <a class="text-white" href="${pageContext.request.contextPath}">Control clientes</a>
             </span>
             <span class="text-muted col-12">
-                <a class="text-white" href="${pageContext.request.contextPath}">Control compras</a>
+                <a class="text-white" href="${pageContext.request.contextPath}/ServletControlador?accion=comprasGeneral">Control compras</a>
             </span>
              
           </div>

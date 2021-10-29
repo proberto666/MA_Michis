@@ -38,6 +38,8 @@ public class ServletControlador extends HttpServlet {
                     break;
                 case "compras":
                     //Aquí va el método
+                case "comprasGeneral":
+                    this.listadoComprasGeneral(request, response);
                 default:
                     this.accionDefault(request, response);
             }

@@ -54,9 +54,9 @@
 
                 <div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">
-                        <h3>Total Clientes</h3>
+                        <h3>Total Compras</h3>
                         <h4 class="display-4">
-                            <i class="fas fa-users"></i> ${totalClientes}
+                            <i class="fas fa-users"></i> ${totalCompras}
                         </h4>
                     </div>
                 </div>        

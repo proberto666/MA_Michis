@@ -12,8 +12,9 @@
     </head>
         <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
-        <div class="container">
-        <table class="table">
+        
+        <div class="container-fluid">
+        <table class="table table-borderless">
             <thead bgcolor="eb332c" style="color:white">
               <tr>
                 <th scope="col">ID</th>
@@ -22,7 +23,9 @@
                 <th scope="col">Proveedor</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Costo</th>
+                <th scope="col"></th>
               </tr>
+            
             </thead>
             <tbody>
               <tr>
@@ -32,61 +35,17 @@
                 <td>N/A</td>
                 <td>01</td>
                 <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-              </tr><!-- comment -->
-            </tbody>
+                <td><a class="pl-1 pr-1 text-dark btn" href="#">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <a class="pl-1 pr-1 text-dark btn" href="#">
+                    <i class="fas fa-trash"></i>
+                </a></td>
+              </tr>     
+            </tbody>        
         </table>
         </div>
-        
-        <!--Pie de Pagina-->
-        <jsp:include page="/WEB-INF/paginas/Comunes/footer.jsp"/>
+       
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

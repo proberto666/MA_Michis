@@ -8,7 +8,6 @@
             basura
         </a>
         
-        <div class="collapse navbar-collapse" id="navbarNav">
             
             <a class="nav-link" href="#">Productos</a>
             
@@ -16,7 +15,6 @@
             
             <a class="nav-link" href="#">Usuarios</a>
             
-        </div>
         <ul class="navbar-right">
             <i class="fas fa-sign-out-alt"></i>
         </ul>

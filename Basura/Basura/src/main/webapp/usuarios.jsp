@@ -1,17 +1,16 @@
-<%-- 
-    Document   : usuarios
-    Created on : 19/11/2021, 10:26:29 AM
-    Author     : Development
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Libreria de fontawesome -->
+        <script src="https://kit.fontawesome.com/bc1817dbc5.js" crossorigin="anonymous"></script>
+
+        <title>Usuarios</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+ <jsp:include page="/WEB-INF/listadoUsuario.jsp"/>
+
     </body>
 </html>

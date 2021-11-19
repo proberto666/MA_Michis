@@ -7,13 +7,14 @@
         <title>Basura - Insumos</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+        <link rel="stylesheet" href="styles.css">
+
         <script src="https://kit.fontawesome.com/ab66b3d3f7.js" crossorigin="anonymous"></script>
     </head>
         <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
         
-        <div class="container-fluid">
+        <div class="container-fluid"  style="margin-top: 20px;">
         <table class="table table-borderless">
             <thead bgcolor="eb332c" style="color:white">
               <tr>
@@ -45,7 +46,9 @@
             </tbody>        
         </table>
         </div>
-       
+        <a class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;">
+            <i class="fas fa-plus fa-2x mt-2"></i>
+        </a>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

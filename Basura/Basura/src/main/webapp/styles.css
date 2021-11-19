@@ -16,3 +16,16 @@ and open the template in the editor.
 	right:40px;
 	text-align:center;
 }
+
+.titleTable{
+    background: #eb332c; 
+    color: white;
+    border: 1.5px solid ;
+    border-color: rgb(235,51,44);
+}
+
+.elementTable{
+    border: 1.5px solid ; 
+    border-color: rgb(235,51,44); 
+    margin-top: 20px;
+}

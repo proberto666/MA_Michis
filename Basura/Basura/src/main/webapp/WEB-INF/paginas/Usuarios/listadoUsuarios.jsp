@@ -1,14 +1,11 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setLocale value="es_MX"/>
-
 <section id="clientes">
+
     <div class="container col-md-11" style="margin-top: 20px; ">
         <div class="row">
             <div class="col-md-12" >
                 <table class="table thead-light" >
                    
-                    <thead style="background: #eb332c; color: white;border: 1.5px solid ; border-color: rgb(235,51,44);">
+                    <thead class="titleTable">
                             <tr>
                                 <th>USUARIO</th>
                                 <th>CONTRASEÑA</th>
@@ -19,14 +16,14 @@
                         </thead>
             
                         <tbody>
-                                <tr style="border: 1.5px solid ; border-color: rgb(235,51,44); margin-top: 20px; ">
+                                <tr class="elementTable">
                                     <td>Mariroco101</td>
                                     <td style="text-align: start; ">********&nbsp; &nbsp;<i class="fa fa-eye" aria-hidden="true"></td>
                                     <td> mariroco@gmail.com</td>
                                     <td> Administradora</td>
                                     <td><i class="fa fa-pencil" aria-hidden="true"></i> <i class="fa fa-ban" aria-hidden="true"></i></td>
                                 </tr>
-                                <tr style="border: 1.5px solid ; border-color: rgb(235,51,44); margin-top: 20px;">
+                                <tr class="elementTable">
                                     <td>yareRam0-0</td>
                                     <td style="text-align: start; ">yares:) &nbsp; &nbsp;<i  class="fa fa-eye-slash" aria-hidden="true"></i></td>
                                     <td> yarelirb@gmail.com</td>
@@ -38,4 +35,8 @@
             </div>
         </div>
     </div>
+         <a class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;">
+        <i class="fas fa-plus fa-2x mt-2"></i>
+    </a>
+    
 </section>

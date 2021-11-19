@@ -4,11 +4,8 @@
         
         <a class="navbar-brand" href="#">
             <img src="/WEB-INF/paginas/Comunes/logo.png" alt="logo">
-            
             basura
         </a>
-        
-            
             <a class="nav-link" href="#">Productos</a>
             
             <a class="nav-link" href="#">Insumos</a>

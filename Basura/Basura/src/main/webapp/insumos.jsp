@@ -12,7 +12,79 @@
     </head>
         <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
-
+        <div class="container">
+        <table class="table">
+            <thead bgcolor="eb332c" style="color:white">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Costo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Tela</td>
+                <td>Rojo</td>
+                <td>N/A</td>
+                <td>01</td>
+                <td>N/A</td>
+              </tr><!-- comment -->
+            </tbody>
+        </table>
+        </div>
+        
         <!--Pie de Pagina-->
         <jsp:include page="/WEB-INF/paginas/Comunes/footer.jsp"/>
 

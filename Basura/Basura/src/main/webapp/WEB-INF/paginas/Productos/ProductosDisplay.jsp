@@ -1,7 +1,7 @@
 <section id="productos">
     
-    <a class="btn text-white" style="background-color: #eb332c; border-radius: 50%;">
-        <i class="fas fa-plus"></i>
+    <a class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;">
+        <i class="fas fa-plus fa-2x mt-2"></i>
     </a>
     
     

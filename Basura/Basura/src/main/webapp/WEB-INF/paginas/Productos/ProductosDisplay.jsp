@@ -20,7 +20,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">
@@ -50,7 +50,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">
@@ -80,7 +80,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">
@@ -111,7 +111,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">
@@ -141,7 +141,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">
@@ -171,7 +171,7 @@
             </div>
             
             <div class="p-3" class="col-12">
-                 <img src="src" alt="alt"/>
+                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
             </div>
             
             <div class="col-12 text-left">

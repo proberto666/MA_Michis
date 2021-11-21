@@ -29,3 +29,7 @@ and open the template in the editor.
     border-color: rgb(235,51,44); 
     margin-top: 20px;
 }
+
+.bgBlack{
+    background-color: black;
+}

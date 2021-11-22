@@ -10,10 +10,12 @@
         <form action="${pageContext.request.contextPath}/ServletControlador?accion=abrirProductos"
                   method="POST" class="was-validated">
       <div class="modal-body">
-            <div class="modal-body" style="text-align: left;">
+            <div class="modal-body" style="text-align: center;">
                 
+                <div class="col-8 container">
                  <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarCamara">
-                 <button class="btn bgBlack text-white">Añadir Foto</button>
+                </div>
+                 <button class="btn bgBlack text-white mt-3">Añadir Foto</button>
                  <br> <br>
                 <input type="text" placeholder="Nombre" class="inputValue form-control" required>
                 <br> <br>

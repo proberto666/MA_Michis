@@ -13,46 +13,10 @@
     </head>
         <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
-        
-        <div class="container-fluid"  style="margin-top: 20px;">
-        <table class="table table-borderless">
-            <thead bgcolor="eb332c" style="color:white">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Color</th>
-                <th scope="col">Proveedor</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Costo</th>
-                <th scope="col"></th>
-              </tr>
-            
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-                <td><a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a></td>
-              </tr>     
-            </tbody>        
-        </table>
-        </div>
-        <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;
-            "data-toggle="modal" data-target="#agregarInsumoModal">
-            <i class="fas fa-plus fa-2x mt-2"></i>
-        </a>
-
+        <jsp:include page="/WEB-INF/paginas/Insumos/listaInsumos.jsp"/>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
     </body>
+    
 </html>

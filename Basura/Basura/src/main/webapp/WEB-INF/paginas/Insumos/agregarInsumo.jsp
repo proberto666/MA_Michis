@@ -10,11 +10,11 @@
         <form action="${pageContext.request.contextPath}/ServletControlador?accion=abrirProductos"
                   method="POST" class="was-validated">
       <div class="modal-body" style="text-align: center">
-                    <input type="text" placeholder="Nombre" class="inputValue" required>
+                    <input type="text" placeholder="Nombre" class="inputValue form-control" required>
                     <br> <br>
-                    <input type="text" placeholder="Color"  class="inputValue" required>
+                    <input type="text" placeholder="Color"  class="inputValue form-control" required>
                     <br> <br>
-                    <input type="text" placeholder="Proveedor" class="inputValue" required>
+                    <input type="text" placeholder="Proveedor" class="inputValue form-control" required>
                     <br> <br>
                     <label>Cantidad</label>
                     <input type="number" placeholder="0"  class="inputValue form-control" required>
@@ -22,7 +22,6 @@
                     <label>Costo</label>
                     <input type="number" placeholder="0"  class="inputValue form-control" required>
                     <br> <br>
-                    <button class="btn btn-dark" type="submit">CONFIRMAR</button>
                 </div>  
         <div class="modal-footer">
           <button class="btn btn-dark" type="submit" data-dismiss="modal">CONFIRMAR</button>

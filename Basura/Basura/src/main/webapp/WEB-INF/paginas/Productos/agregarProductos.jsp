@@ -19,8 +19,10 @@
                  <br> <br>
                 <input type="text" placeholder="Nombre" class="inputValue form-control" required>
                 <br> <br>
+                <label>Cantidad</label>
                 <input type="number" placeholder="0"  class="inputValue form-control" required>
                 <br> <br>
+                <label>Precio</label>
                 <input type="number" min="1" step="any" placeholder="0" class="inputValue form-control" required>
                 <br> <br>
                     

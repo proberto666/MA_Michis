@@ -35,18 +35,9 @@ and open the template in the editor.
 }
 
 .inputValue{
-    border:none;
     border-bottom:1px solid black;  
 }
 
-.caja {
-   margin:20px auto 40px auto;	
-   border:1px solid black;
-   height:30px;
-   overflow: hidden;
-   width: 230px;
-   position:relative;
-}
 select {
    background: transparent;
    border: black;
@@ -56,18 +47,3 @@ select {
    width: 250px;
 }
 select:focus{ outline: none;}
-
-.caja::after{
-	content:"\025be";
-	display:table-cell;
-	padding-top:7px;
-	text-align:center;
-	width:30px;
-	height:30px;
-	background-color:black;
-        color: white;
-	position:absolute;
-	top:0;
-	right:0px;	
-	pointer-events: none;
-}

@@ -29,6 +29,9 @@ public class ServletImagenes extends HttpServlet {
                 case "cargarGorro":
                     this.cargarGorro(request,response);
                     break;
+                case "cargarCamara":
+                    this.cargarCamara(request,response);
+                    break;
                 default:
                     this.cargarFuego(request,response);
                     break;
@@ -81,6 +84,19 @@ public class ServletImagenes extends HttpServlet {
 
         String pathToWeb = getServletContext().getRealPath(File.separator);
         File f = new File(pathToWeb + "ballena.png");
+        BufferedImage bi = ImageIO.read(f);
+        try (OutputStream out = response.getOutputStream()) {
+            ImageIO.write(bi, "png", out);
+        }
+
+    }
+    
+    protected void cargarCamara(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        response.setContentType("image/png");
+
+        String pathToWeb = getServletContext().getRealPath(File.separator);
+        File f = new File(pathToWeb + "camara.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);

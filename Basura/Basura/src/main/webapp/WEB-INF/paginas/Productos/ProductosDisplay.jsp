@@ -1,8 +1,6 @@
 <section id="productos">
     
-    <a class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;">
-        <i class="fas fa-plus fa-2x mt-2"></i>
-    </a>
+    
     
     
     <div class="row">
@@ -180,15 +178,18 @@
                 <h5> $350.00 </h5>
             </div>
                 
+            
+            
+            
+            
             </div>
-            
-            
-          
-            
-            
         </div>
-    
     </div>
-    
+            <a class="btn float text-white" href="#" style="background-color: #eb332c; border-radius: 50%;"
+                data-toggle="modal" data-target="#agregarProductoModal">
+                 <i class="fas fa-plus fa-2x mt-2"></i>
+            </a>
 </section>
+            
+<jsp:include page="./agregarProductos.jsp"/>
 

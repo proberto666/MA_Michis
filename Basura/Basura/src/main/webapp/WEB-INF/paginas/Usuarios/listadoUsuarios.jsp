@@ -32,8 +32,8 @@
                                 </tr>
                         </tbody>
                     </table>
-                <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;"
-                   data-toggle="modal" data-target="#agregarUsuarioModal">
+                <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;
+                   "data-toggle="modal" data-target="#agregarUsuarioModal">
                     <i class="fas fa-plus fa-2x mt-2"></i>
                 </a>
             </div>

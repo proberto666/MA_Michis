@@ -46,7 +46,8 @@
             </tbody>        
         </table>
         </div>
-        <a class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;">
+        <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;
+            "data-toggle="modal" data-target="#agregarInsumoModal">
             <i class="fas fa-plus fa-2x mt-2"></i>
         </a>
 

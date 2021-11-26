@@ -44,7 +44,7 @@ public class ServletImagenes extends HttpServlet {
         response.setContentType("image/png");
 
         String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + "fuego.png");
+        File f = new File(pathToWeb + "/img/fuego.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);
@@ -57,7 +57,7 @@ public class ServletImagenes extends HttpServlet {
         response.setContentType("image/png");
 
         String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + "logoH.png");
+        File f = new File(pathToWeb + "/img/logoH.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);
@@ -70,7 +70,7 @@ public class ServletImagenes extends HttpServlet {
         response.setContentType("image/png");
 
         String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + "logoLI.png");
+        File f = new File(pathToWeb + "/img/logoLI.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);
@@ -83,7 +83,8 @@ public class ServletImagenes extends HttpServlet {
         response.setContentType("image/png");
 
         String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + "ballena.png");
+        System.out.print(pathToWeb);
+        File f = new File(pathToWeb + "/img/ballena.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);
@@ -94,9 +95,10 @@ public class ServletImagenes extends HttpServlet {
     protected void cargarCamara(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("image/png");
-
+        
         String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + "camara.png");
+         System.out.print(pathToWeb);
+        File f = new File(pathToWeb + "/img/camara.png");
         BufferedImage bi = ImageIO.read(f);
         try (OutputStream out = response.getOutputStream()) {
             ImageIO.write(bi, "png", out);

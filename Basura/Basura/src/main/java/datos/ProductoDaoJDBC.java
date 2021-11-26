@@ -11,7 +11,7 @@ public class ProductoDaoJDBC {
     
     private static final String SQL_INSERT = "INSERT INTO producto(nombre, cantidad, precio) VALUES(?, ?, ?)";
     
-    private static final String SQL_UPDATE = "UPDATE insumo SET nombre=?, cantidad=?, precio=? WHERE idProducto=?";
+    private static final String SQL_UPDATE = "UPDATE producto SET nombre=?, cantidad=?, precio=? WHERE idProducto=?";
     
     private static final String SQL_DELETE = "DELETE FROM producto WHERE idProducto = ?";
     
@@ -104,6 +104,7 @@ public class ProductoDaoJDBC {
             stmt.setString(1, producto.getNombre());
             stmt.setInt(2, producto.getCantidad());
             stmt.setDouble(3, producto.getPrecio());
+            stmt.setInt(4, producto.getIdProducto());
 
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {

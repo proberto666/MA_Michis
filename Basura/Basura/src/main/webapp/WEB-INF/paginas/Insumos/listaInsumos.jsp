@@ -28,7 +28,7 @@
                       <td><a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=editarInsumo&idInsumo=${insumo.idInsumo}">
                           <i class="fas fa-pen"></i>
                       </a>
-                      <a class="pl-1 pr-1 text-dark btn" href="#">
+                      <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=eliminarInsumo&idInsumo=${insumo.idInsumo}">
                           <i class="fas fa-trash"></i>
                       </a></td>
                     </tr>

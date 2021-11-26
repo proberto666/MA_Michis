@@ -15,20 +15,20 @@
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
         <div class="container text-center p-4">
            
-            <form class="col-4 mx-auto" action="#"
+            <form class="col-4 mx-auto" action="${pageContext.request.contextPath}/ServletControlador?accion=modificarInsumo&idInsumo=${insumo.idInsumo}"
                 method="POST" class="was-validated">
                 <h1 class="text-center">Editar Insumo</h1> </br>
-                <input type="text" placeholder="Nombre" value="${insumo.nombre}" class="inputValue form-control" required>
+                <input type="text" name="nombre" placeholder="Nombre" value="${insumo.nombre}" class="inputValue form-control" required>
                 <br> <br>
-                <input type="text" placeholder="Color" value="${insumo.color}" class="inputValue form-control" required>
+                <input type="text" name="color" placeholder="Color" value="${insumo.color}" class="inputValue form-control" required>
                 <br> <br>
-                <input type="text" placeholder="Proveedor" value="${insumo.proveedor}" class="inputValue form-control" required>
+                <input type="text" name="proveedor" placeholder="Proveedor" value="${insumo.proveedor}" class="inputValue form-control" required>
                 <br> <br>
                 <label>Cantidad</label>
-                <input type="number" placeholder="0" value="${insumo.cantidad}" class="inputValue form-control" required>
+                <input type="number" placeholder="0" name="cantidad" value="${insumo.cantidad}" class="inputValue form-control" required>
                 <br> <br>
                 <label>Costo</label>
-                <input type="number" placeholder="0" value="${insumo.costo}" class="inputValue form-control" required>
+                <input type="number" placeholder="0" name="costo" value="${insumo.costo}" class="inputValue form-control" required>
                 <br> <br>
                 
                 <a class="btn btn-dark" href="${pageContext.request.contextPath}/ServletControlador?accion=abrirInsumos" >Cancelar</a>

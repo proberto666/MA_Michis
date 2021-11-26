@@ -149,7 +149,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirInsumos(request, response);
     }
     
     //Método para eliminar un producto
@@ -166,7 +166,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirProductos(request, response);
     }
     
     //Método para eliminar un usuario
@@ -183,7 +183,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirUsuarios(request, response);
     }
     
     // FINAL DE SECCIÓN DE GET
@@ -248,7 +248,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirInsumos(request, response);
     }
     
     //Método para agregar producto
@@ -278,7 +278,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirProductos(request, response);
     }
     
     //Método para agregar usuario
@@ -297,7 +297,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirUsuarios(request, response);
     }
     
     //Método para modificar insumo
@@ -330,7 +330,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirInsumos(request,response);
     }
     
     //Método para modificar producto
@@ -361,7 +361,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirProductos(request, response);
     }
     
     //Método para modificar usuario
@@ -377,11 +377,11 @@ public class ServletControlador extends HttpServlet {
         Usuario user = new Usuario(idUsuario, usuario, password, contacto, nivel);
 
         //Insertamos el nuevo objeto en la base de datos
-        int registrosModificados = new UsuarioDaoJDBC().addUsuario(user);
+        int registrosModificados = new UsuarioDaoJDBC().updateUsuario(user);
         System.out.println("registrosModificados = " + registrosModificados);
 
         //Redirigimos hacia accion por default
-        this.accionDefault(request, response);
+        this.abrirUsuarios(request, response);
     }
     
     // FINAL DE SECCIÓN DE POST

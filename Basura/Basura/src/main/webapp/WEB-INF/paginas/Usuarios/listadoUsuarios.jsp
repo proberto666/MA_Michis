@@ -32,7 +32,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="pl-1 pr-1 text-dark btn" href="#">
+                                        <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=eliminarUsuario&idUsuario=${usuario.idUsuario}">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>

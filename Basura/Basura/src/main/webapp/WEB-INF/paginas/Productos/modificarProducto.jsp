@@ -14,7 +14,7 @@
     <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
         <div class="container text-center p-4">
-             <form class="col-4 mx-auto" action="#"
+             <form class="col-4 mx-auto" action="${pageContext.request.contextPath}/ServletControlador?accion=modificarProducto&idProducto=${producto.idProducto}"
                 method="POST" class="was-validated">
                 <h1 class="text-center">Editar Insumo</h1> </br>
                 <div class="col-8 container">
@@ -22,13 +22,13 @@
                 </div>
                  <button class="btn bgBlack text-white mt-3">Añadir Foto</button>
                  <br> <br>
-                <input type="text" placeholder="Nombre" value="${producto.nombre}" class="inputValue form-control" required>
+                <input type="text" name="nombre" placeholder="Nombre" value="${producto.nombre}" class="inputValue form-control" required>
                 <br> <br>
                 <label>Cantidad</label>
-                <input type="number" placeholder="0" value="${producto.cantidad}" class="inputValue form-control" required>
+                <input type="number" name="cantidad" placeholder="0" value="${producto.cantidad}" class="inputValue form-control" required>
                 <br> <br>
                 <label>Precio</label>
-                <input type="number" min="1" step="any" value="${producto.precio}" placeholder="0" class="inputValue form-control" required>
+                <input type="number" name="precio" min="1" step="any" value="${producto.precio}" placeholder="0" class="inputValue form-control" required>
                 </br></br>
                 
                 <a class="btn btn-dark" href="${pageContext.request.contextPath}/ServletControlador?accion=abrirProductos" >Cancelar</a>

@@ -17,13 +17,13 @@
                 </div>
                  <button class="btn bgBlack text-white mt-3">Añadir Foto</button>
                  <br> <br>
-                <input type="text" placeholder="Nombre" class="inputValue form-control" required>
+                <input type="text" name="nombre" placeholder="Nombre" class="inputValue form-control" required>
                 <br> <br>
                 <label>Cantidad</label>
-                <input type="number" placeholder="0"  class="inputValue form-control" required>
+                <input type="number" name="cantidad" placeholder="0"  class="inputValue form-control" required>
                 <br> <br>
                 <label>Precio</label>
-                <input type="number" min="1" step="any" placeholder="0" class="inputValue form-control" required>
+                <input type="number" name="precio" min="1" step="any" placeholder="0" class="inputValue form-control" required>
                 <br> <br>
                     
             </div>

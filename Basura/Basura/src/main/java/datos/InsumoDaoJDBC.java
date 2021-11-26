@@ -116,6 +116,7 @@ public class InsumoDaoJDBC {
             stmt.setString(3, insumo.getProveedor());
             stmt.setInt(4, insumo.getCantidad());
             stmt.setDouble(5, insumo.getCosto());
+            stmt.setInt(6, insumo.getIdInsumo());
 
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {

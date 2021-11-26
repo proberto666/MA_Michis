@@ -11,16 +11,16 @@
                   method="POST" class="was-validated">
       <div class="modal-body">
             <div class="modal-body" style="text-align: left;">
-               <input type="text" placeholder="Usuario" class="inputValue form-control" required>
+               <input type="text" name="usuario" placeholder="Usuario" class="inputValue form-control" required>
                 <br> <br>
-                <input type="password" placeholder="Contraseña"  class="inputValue form-control" required>
+                <input type="password" name="password" placeholder="Contraseña"  class="inputValue form-control" required>
                 <br> <br>
-                <input type="email" placeholder="Contacto" class="inputValue form-control" required>
+                <input type="email" name="contacto" placeholder="Contacto" class="inputValue form-control" required>
                 <br> <br>
                 <label>NIVEL</label>
 
                 
-                <select class="form-control">
+                <select name="nivel" class="form-control">
                     <option>--Selecciona una opción--</option>
                     <option value="Administrador">Administrador</option>
                     <option value="Vendedor">Vendedor</option>

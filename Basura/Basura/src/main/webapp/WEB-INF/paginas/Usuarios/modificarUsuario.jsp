@@ -14,17 +14,17 @@
     <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
         <div class="container text-center p-4">
-            <form action="#"
+            <form action="${pageContext.request.contextPath}/ServletControlador?accion=modificarUsuario&idUsuario=${usuario.idUsuario}"
                 method="POST" class="col-4 mx-auto">
                 <h1 class="text-center">Editar Usuario</h1> </br>
-                <input type="text" placeholder="Usuario" class="inputValue form-control" value="${usuario.usuario}" required>
+                <input type="text" placeholder="Usuario" name="usuario" class="inputValue form-control" value="${usuario.usuario}" required>
                 <br> <br>
-                <input type="password" placeholder="Contraseña" value="${usuario.password}" class="inputValue form-control" required>
+                <input type="password" name="password" placeholder="Contraseña" value="${usuario.password}" class="inputValue form-control" required>
                 <br> <br>
-                <input type="email" placeholder="Contacto" value="${usuario.contacto}" class="inputValue form-control" required>
+                <input type="email" name="contacto" placeholder="Contacto" value="${usuario.contacto}" class="inputValue form-control" required>
                 <br> <br>
                 <label>NIVEL</label>
-                <select class="form-control mb-2" value="${usuario.nivel}">
+                <select name="nivel" class="form-control mb-2" value="${usuario.nivel}">
                     <option>--Selecciona una opción--</option>
                     <option value="Administrador">Administrador</option>
                     <option value="Vendedor">Vendedor</option>

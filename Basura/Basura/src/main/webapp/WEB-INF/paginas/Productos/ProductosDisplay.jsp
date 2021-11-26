@@ -15,7 +15,7 @@
                     <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=editarProducto&idProducto=${producto.idProducto}">
                         <i class="fas fa-pen"></i>
                     </a>
-                    <a class="pl-1 pr-1 text-dark btn" href="#">
+                    <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=eliminarProducto&idProducto=${producto.idProducto}">
                         <i class="fas fa-trash"></i>
                     </a>
                 </div>

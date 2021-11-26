@@ -114,6 +114,7 @@ public class UsuarioDaoJDBC {
             stmt.setString(2, user.getPassword());
             stmt.setString(3, user.getContacto());
             stmt.setString(4, user.getNivel());
+            stmt.setInt(5, user.getIdUsuario());
 
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {

@@ -14,14 +14,15 @@
     <body>
         <jsp:include page="/WEB-INF/paginas/Comunes/header.jsp"/>
         <div class="container text-center p-4">
-             <form class="col-4 mx-auto" action="${pageContext.request.contextPath}/ServletControlador?accion=modificarProducto&idProducto=${producto.idProducto}"
-                method="POST" class="was-validated">
-                <h1 class="text-center">Editar Insumo</h1> </br>
+            <form class="col-4 mx-auto was-validated" action="${pageContext.request.contextPath}/ServletControlador?accion=modificarProducto&idProducto=${producto.idProducto}"
+                  method="POST">
+                <h1 class="text-center">Editar Producto</h1> </br>
                 <div class="col-8 container">
-                 <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarCamara">
+                    <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG&ImgName=${producto.img}">
                 </div>
-                 <button class="btn bgBlack text-white mt-3">Añadir Foto</button>
-                 <br> <br>
+                <input type="text" name="img" placeholder="Nombre imagen PNG" value="${producto.img}" class="inputValue form-control mt-4" required readonly>
+                <a href="#" class="btn bgBlack text-white mt-3">Añadir Foto</a>
+                <br> <br>
                 <input type="text" name="nombre" placeholder="Nombre" value="${producto.nombre}" class="inputValue form-control" required>
                 <br> <br>
                 <label>Cantidad</label>
@@ -30,7 +31,7 @@
                 <label>Precio</label>
                 <input type="number" name="precio" min="1" step="any" value="${producto.precio}" placeholder="0" class="inputValue form-control" required>
                 </br></br>
-                
+
                 <a class="btn btn-dark" href="${pageContext.request.contextPath}/ServletControlador?accion=abrirProductos" >Cancelar</a>
                 <button class="btn btn-dark " type="submit" data-dismiss="modal">CONFIRMAR</button>
             </form>

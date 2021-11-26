@@ -1,10 +1,13 @@
 package dominio;
 
 public class Producto {
+
+    
     private int idProducto;
     private String nombre;
     private int cantidad;
     private double precio;
+    private String img;
 
     public Producto() {
     }
@@ -13,17 +16,19 @@ public class Producto {
         this.idProducto = idProducto;
     }
 
-    public Producto(int idProducto, String nombre, int cantidad, double precio) {
+    public Producto(int idProducto, String nombre, int cantidad, double precio, String img) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.img = img;
     }
-
-    public Producto(String nombre, int cantidad, double precio) {
+    
+    public Producto(String nombre, int cantidad, double precio, String img) {
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.img = img;
     }
 
     public int getIdProducto() {
@@ -58,9 +63,17 @@ public class Producto {
         this.precio = precio;
     }
 
+     public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+    
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", img =" + img + '}';
     }
     
 }

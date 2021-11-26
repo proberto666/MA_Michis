@@ -10,7 +10,7 @@
 
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/ServletControlador?accion=agregarUsuario"
-                      method="POST" class="was-validated text-center">
+                      method="POST" class="was-validated text-center col-10 mx-auto">
                     <input type="text" name="usuario" placeholder="Usuario" class="inputValue form-control" required>
                     <br> <br>
                     <input type="password" name="password" placeholder="Contraseña"  class="inputValue form-control" required>

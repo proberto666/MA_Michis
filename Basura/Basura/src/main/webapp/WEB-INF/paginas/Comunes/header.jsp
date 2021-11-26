@@ -3,7 +3,7 @@
     <nav class="navbar navbar-ligh ">
         
         <a class="navbar-brand" href="#">
-            <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarLogoHead" width="80" height="80" alt="logo">
+            <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG&ImgName=logoH.png" width="80" height="80" alt="logo">
         </a>
         
             

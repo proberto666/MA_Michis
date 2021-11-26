@@ -6,7 +6,6 @@ import datos.UsuarioDaoJDBC;
 import dominio.Insumo;
 import dominio.Producto;
 import dominio.Usuario;
-import java.util.List;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -257,6 +256,7 @@ public class ServletControlador extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String cantidadString = request.getParameter("cantidad");
         String precioString = request.getParameter("precio");
+        String img = "ballena.png";
         
         //Convertimos el string recibido como parámetro y lo convertimos en int
         int cantidad = 0;
@@ -271,7 +271,7 @@ public class ServletControlador extends HttpServlet {
         }
 
         //Creamos el objeto de insumo (modelo)
-        Producto producto = new Producto(nombre, cantidad, precio);
+        Producto producto = new Producto(nombre, cantidad, precio, img);
 
         //Insertamos el nuevo objeto en la base de datos
         int registrosModificados = new ProductoDaoJDBC().addProducto(producto);
@@ -340,7 +340,8 @@ public class ServletControlador extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String cantidadString = request.getParameter("cantidad");
         String precioString = request.getParameter("precio");
-        
+        String img = "ballena.png";
+                
         //Convertimos el string recibido como parámetro y lo convertimos en int
         int cantidad = 0;
         if (cantidadString != null && !"".equals(cantidadString)) {
@@ -354,7 +355,7 @@ public class ServletControlador extends HttpServlet {
         }
 
         //Creamos el objeto de insumo (modelo)
-        Producto producto = new Producto(idProducto, nombre, cantidad, precio);
+        Producto producto = new Producto(idProducto, nombre, cantidad, precio, img);
 
         //Insertamos el nuevo objeto en la base de datos
         int registrosModificados = new ProductoDaoJDBC().updateProducto(producto);

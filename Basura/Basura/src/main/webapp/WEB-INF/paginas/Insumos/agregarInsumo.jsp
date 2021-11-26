@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/ServletControlador?accion=agregarInsumo"
-                      method="POST" class="was-validated text-center">
+                      method="POST" class="was-validated text-center col-10 mx-auto">
                     <input type="text" name="nombre" placeholder="Nombre" class="inputValue form-control" required>
                     <br> <br>
                     <input type="text" name="color" placeholder="Color"  class="inputValue form-control" required>

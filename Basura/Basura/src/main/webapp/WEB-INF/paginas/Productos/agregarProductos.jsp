@@ -9,11 +9,12 @@
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/ServletControlador?accion=agregarProducto"
-                      method="POST" class="was-validated text-center">
+                      method="POST" class="was-validated text-center col-10 mx-auto ">
                     <div class="col-8 container">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarCamara">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG">
                     </div>
-                    <button class="btn bgBlack text-white mt-3">Añadir Foto</button>
+                    <input type="text" name="img" placeholder="Nombre imagen PNG" class="inputValue form-control mt-4" required readonly>
+                    <a href="#" class="btn bgBlack text-white mt-3">Añadir Foto</a>
                     <br> <br>
                     <input type="text" name="nombre" placeholder="Nombre" class="inputValue form-control" required>
                     <br> <br>

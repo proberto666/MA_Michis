@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="p-3" class="col-12">
-                     <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
+                     <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG&ImgName=${producto.img}" alt="alt" class="img-fluid"/>
                 </div>
 
                 <div class="col-12 text-left">

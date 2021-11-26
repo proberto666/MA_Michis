@@ -24,6 +24,14 @@ public class Insumo {
         this.costo = costo;
     }
 
+    public Insumo(String nombre, String color, String proveedor, int cantidad, double costo) {
+        this.nombre = nombre;
+        this.color = color;
+        this.proveedor = proveedor;
+        this.cantidad = cantidad;
+        this.costo = costo;
+    }
+
     public int getIdInsumo() {
         return idInsumo;
     }

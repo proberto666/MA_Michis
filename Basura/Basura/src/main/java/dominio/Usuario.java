@@ -22,6 +22,13 @@ public class Usuario {
         this.nivel = nivel;
     }
 
+    public Usuario(String usuario, String password, String contacto, String nivel) {
+        this.usuario = usuario;
+        this.password = password;
+        this.contacto = contacto;
+        this.nivel = nivel;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }

@@ -197,29 +197,192 @@ public class ServletControlador extends HttpServlet {
         if (accion != null) {
             switch (accion) {
                 case "agregarInsumo":
-                    
+                    this.agregarInsumo(request, response);
                     break;
                 case "agregarProducto":
-                    
+                    this.agregarProducto(request, response);
                     break;
                 case "agregarUsuario":
-                    
+                    this.agregarUsuario(request, response);
                     break;
                 case "modificarInsumo":
-                    
+                    this.modificarInsumo(request, response);
                     break;
                 case "modificarProducto":
-                    
+                    this.modificarProducto(request, response);
                     break;
                 case "modificarUsuario":
-                    
+                    this.modificarUsuario(request, response);
                     break;
-                default:
-                    this.accionDefault(request, response);
             }
         } else {
             this.accionDefault(request, response);
         }
+    }
+    
+    //Método para agregar insumo
+    private void agregarInsumo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        String nombre = request.getParameter("nombre");
+        String color = request.getParameter("color");
+        String proveedor = request.getParameter("proveedor");
+        String cantidadString = request.getParameter("cantidad");
+        String costoString = request.getParameter("costo");
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en int
+        int cantidad = 0;
+        if (cantidadString != null && !"".equals(cantidadString)) {
+            cantidad = Integer.parseInt(cantidadString);
+        }
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en double
+        double costo = 0;
+        if (costoString != null && !"".equals(costoString)) {
+            costo = Double.parseDouble(costoString);
+        }
+
+        //Creamos el objeto de insumo (modelo)
+        Insumo insumo = new Insumo(nombre, color, proveedor, cantidad, costo);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new InsumoDaoJDBC().addInsumo(insumo);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    //Método para agregar producto
+    private void agregarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        String nombre = request.getParameter("nombre");
+        String cantidadString = request.getParameter("cantidad");
+        String precioString = request.getParameter("precio");
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en int
+        int cantidad = 0;
+        if (cantidadString != null && !"".equals(cantidadString)) {
+            cantidad = Integer.parseInt(cantidadString);
+        }
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en double
+        double precio = 0;
+        if (precioString != null && !"".equals(precioString)) {
+            precio = Double.parseDouble(precioString);
+        }
+
+        //Creamos el objeto de insumo (modelo)
+        Producto producto = new Producto(nombre, cantidad, precio);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new ProductoDaoJDBC().addProducto(producto);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    //Método para agregar usuario
+    private void agregarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        String usuario = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String contacto = request.getParameter("contacto");
+        String nivel = request.getParameter("nivel");
+
+        //Creamos el objeto de insumo (modelo)
+        Usuario user = new Usuario(usuario, password, contacto, nivel);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new UsuarioDaoJDBC().addUsuario(user);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    //Método para modificar insumo
+    private void modificarInsumo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        int idInsumo = Integer.parseInt(request.getParameter("idInsumo"));
+        String nombre = request.getParameter("nombre");
+        String color = request.getParameter("color");
+        String proveedor = request.getParameter("proveedor");
+        String cantidadString = request.getParameter("cantidad");
+        String costoString = request.getParameter("costo");
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en int
+        int cantidad = 0;
+        if (cantidadString != null && !"".equals(cantidadString)) {
+            cantidad = Integer.parseInt(cantidadString);
+        }
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en double
+        double costo = 0;
+        if (costoString != null && !"".equals(costoString)) {
+            costo = Double.parseDouble(costoString);
+        }
+
+        //Creamos el objeto de insumo (modelo)
+        Insumo insumo = new Insumo(idInsumo, nombre, color, proveedor, cantidad, costo);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new InsumoDaoJDBC().updateInsumo(insumo);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    //Método para modificar producto
+    private void modificarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        int idProducto = Integer.parseInt(request.getParameter("idProducto"));
+        String nombre = request.getParameter("nombre");
+        String cantidadString = request.getParameter("cantidad");
+        String precioString = request.getParameter("precio");
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en int
+        int cantidad = 0;
+        if (cantidadString != null && !"".equals(cantidadString)) {
+            cantidad = Integer.parseInt(cantidadString);
+        }
+        
+        //Convertimos el string recibido como parámetro y lo convertimos en double
+        double precio = 0;
+        if (precioString != null && !"".equals(precioString)) {
+            precio = Double.parseDouble(precioString);
+        }
+
+        //Creamos el objeto de insumo (modelo)
+        Producto producto = new Producto(idProducto, nombre, cantidad, precio);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new ProductoDaoJDBC().updateProducto(producto);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
+    }
+    
+    //Método para modificar usuario
+    private void modificarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recuperamos los valores del formulario
+        int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+        String usuario = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String contacto = request.getParameter("contacto");
+        String nivel = request.getParameter("nivel");
+
+        //Creamos el objeto de insumo (modelo)
+        Usuario user = new Usuario(idUsuario, usuario, password, contacto, nivel);
+
+        //Insertamos el nuevo objeto en la base de datos
+        int registrosModificados = new UsuarioDaoJDBC().addUsuario(user);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //Redirigimos hacia accion por default
+        this.accionDefault(request, response);
     }
     
     // FINAL DE SECCIÓN DE POST

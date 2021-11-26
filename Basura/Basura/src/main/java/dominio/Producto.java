@@ -20,6 +20,12 @@ public class Producto {
         this.precio = precio;
     }
 
+    public Producto(String nombre, int cantidad, double precio) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+
     public int getIdProducto() {
         return idProducto;
     }

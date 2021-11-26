@@ -12,7 +12,7 @@
                 <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
 
                     <div class="col-12 text-right text-dark">
-                    <a class="pl-1 pr-1 text-dark btn" href="#">
+                    <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=editarProducto&idProducto=${producto.idProducto}">
                         <i class="fas fa-pen"></i>
                     </a>
                     <a class="pl-1 pr-1 text-dark btn" href="#">

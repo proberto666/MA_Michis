@@ -15,6 +15,7 @@
                                 <th>CONTACTO</th>
                                 <th>NIVEL</th>
                                 <th> </th>
+                                <th> </th>
                             </tr>
                         </thead>
             
@@ -25,7 +26,16 @@
                                     <td>*****</td>
                                     <td> ${usuario.contacto}</td>
                                     <td> ${usuario.nivel}</td>
-                                    <td><i class="fas fa-pen"></i> <i class="fas fa-trash"></i></td>
+                                    <td>
+                                        <a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=editarUsuario&idUsuario=${usuario.idUsuario}">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="pl-1 pr-1 text-dark btn" href="#">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                            </c:forEach>
                         </tbody>

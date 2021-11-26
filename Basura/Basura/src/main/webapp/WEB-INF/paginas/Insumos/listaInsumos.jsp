@@ -25,7 +25,7 @@
                       <td>${insumo.proveedor}</td>
                       <td>${insumo.cantidad} (m)</td>
                       <td>$ ${insumo.costo}</td>
-                      <td><a class="pl-1 pr-1 text-dark btn" href="#">
+                      <td><a class="pl-1 pr-1 text-dark btn" href="${pageContext.request.contextPath}/ServletControlador?accion=editarInsumo&idInsumo=${insumo.idInsumo}">
                           <i class="fas fa-pen"></i>
                       </a>
                       <a class="pl-1 pr-1 text-dark btn" href="#">

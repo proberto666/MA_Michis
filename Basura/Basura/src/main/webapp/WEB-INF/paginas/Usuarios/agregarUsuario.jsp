@@ -21,9 +21,9 @@
 
                 
                 <select class="form-control">
-                    <option>Administrador</option>
-                    <option>Vendedor</option>
-                    <option>No se :)</option>
+                    <option>--Selecciona una opción--</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
                 </select>
             </div>
         </div>

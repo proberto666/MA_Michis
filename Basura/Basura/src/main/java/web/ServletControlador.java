@@ -79,7 +79,6 @@ public class ServletControlador extends HttpServlet {
     private void abrirProductos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Producto> listProductos = new ProductoDaoJDBC().getProductos();
         
-         System.out.println("productos = " + listProductos);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listProductos", listProductos);
         request.getRequestDispatcher("productos.jsp").forward(request, response);
@@ -106,7 +105,7 @@ public class ServletControlador extends HttpServlet {
         request.setAttribute("insumo", insumo);
         
         //Creación de ruta para navegar
-        String jspEditar = "/WEB-INF/paginas/Insumos/agregarInsumo.jsp";
+        String jspEditar = "/WEB-INF/paginas/Insumos/modificarInsumo.jsp";
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
     
@@ -119,7 +118,7 @@ public class ServletControlador extends HttpServlet {
         request.setAttribute("producto", producto);
         
         //Creación de ruta para navegar
-        String jspEditar = "/WEB-INF/paginas/Productos/agregarProductos.jsp";
+        String jspEditar = "/WEB-INF/paginas/Productos/modificarProducto.jsp";
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
     
@@ -132,7 +131,7 @@ public class ServletControlador extends HttpServlet {
         request.setAttribute("usuario", usuario);
         
         //Creación de ruta para navegar
-        String jspEditar = "/WEB-INF/paginas/Usuarios/agregarUsuario.jsp";
+        String jspEditar = "/WEB-INF/paginas/Usuarios/modificarUsuario.jsp";
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
     

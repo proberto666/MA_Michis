@@ -1,186 +1,40 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="es_MX"/>
 <section id="productos">
     
     
     
     
     <div class="row">
-        
-        <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
+         <c:forEach var="producto" items="${listProductos}" varStatus="status">
+            <div class="col-3 p-3" >
+                <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
+
+                    <div class="col-12 text-right text-dark">
+                    <a class="pl-1 pr-1 text-dark btn" href="#">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                    <a class="pl-1 pr-1 text-dark btn" href="#">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+
+                <div class="p-3" class="col-12">
+                     <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
+                </div>
+
+                <div class="col-12 text-left">
+                    <h4> ${producto.nombre} </h4>
+
+                    <p> ${producto.cantidad} disponible(s) </p>
+                    <h5>$ ${producto.precio} </h5>
+                </div>
+
+                </div>
             </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            </div>
-            
-            
-          
-            
-            
-        </div>
-        
-         <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            </div>
-            
-            
-          
-            
-            
-        </div>
-        
-         <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            </div>
-            
-            
-          
-            
-            
-        </div>
-        
-        
-         <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            </div>
-            
-            
-          
-            
-            
-        </div>
-        
-         <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            </div>
-            
-            
-          
-            
-            
-        </div>
-        
-         <div class="col-3 p-3" >
-            <div class="col-12 m-3" style="border-color: #eb332c; border-style: solid; border-width: 1px; max-width: 90%">
-                
-                <div class="col-12 text-right text-dark">
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-            
-            <div class="p-3" class="col-12">
-                 <img src="${pageContext.request.contextPath}/ServletImagenes?load=cargarGorro" alt="alt" class="img-fluid"/>
-            </div>
-            
-            <div class="col-12 text-left">
-                <h4> Bucket Hat Ballenas + Lima </h4>
-                <p> 1 disponible </p>
-                <h5> $350.00 </h5>
-            </div>
-                
-            
-            
-            
+       
+       </c:forEach>
             
             </div>
         </div>

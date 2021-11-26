@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="es_MX"/>
 <section id="Insumos">
         <div class="container-fluid"  style="margin-top: 20px;">
         <table class="table table-borderless">
@@ -14,20 +17,22 @@
             
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Tela</td>
-                <td>Rojo</td>
-                <td>N/A</td>
-                <td>01</td>
-                <td>N/A</td>
-                <td><a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <a class="pl-1 pr-1 text-dark btn" href="#">
-                    <i class="fas fa-trash"></i>
-                </a></td>
-              </tr>     
+                <c:forEach var="insumo" items="${listInsumos}" varStatus="status">
+                    <tr>
+                      <th scope="row">${insumo.idInsumo}</th>
+                      <td>${insumo.nombre}</td>
+                      <td>${insumo.color}</td>
+                      <td>${insumo.proveedor}</td>
+                      <td>${insumo.cantidad} (m)</td>
+                      <td>$ ${insumo.costo}</td>
+                      <td><a class="pl-1 pr-1 text-dark btn" href="#">
+                          <i class="fas fa-pen"></i>
+                      </a>
+                      <a class="pl-1 pr-1 text-dark btn" href="#">
+                          <i class="fas fa-trash"></i>
+                      </a></td>
+                    </tr>
+                </c:forEach>
             </tbody>        
         </table>
         </div>

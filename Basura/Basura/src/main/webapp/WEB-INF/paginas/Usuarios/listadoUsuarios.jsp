@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="es_MX"/>
 <section id="usuarios">
    
     <div class="container col-md-11" style="margin-top: 20px; ">
@@ -15,21 +18,16 @@
                             </tr>
                         </thead>
             
-                        <tbody>
+                        <tbody class="text-center">
+                            <c:forEach var="usuario" items="${listUsuarios}" varStatus="status">
                                 <tr class="elementTable">
-                                    <td>Mariroco101</td>
-                                    <td style="text-align: start; ">********&nbsp; &nbsp;<i class="fa fa-eye" aria-hidden="true"></td>
-                                    <td> mariroco@gmail.com</td>
-                                    <td> Administradora</td>
+                                    <td>${usuario.usuario}</td>
+                                    <td>*****</td>
+                                    <td> ${usuario.contacto}</td>
+                                    <td> ${usuario.nivel}</td>
                                     <td><i class="fas fa-pen"></i> <i class="fas fa-trash"></i></td>
                                 </tr>
-                                <tr class="elementTable">
-                                    <td>yareRam0-0</td>
-                                    <td style="text-align: start; ">yares:) &nbsp; &nbsp;<i  class="fa fa-eye-slash" aria-hidden="true"></i></td>
-                                    <td> yarelirb@gmail.com</td>
-                                    <td> Vendedor</td>
-                                    <td><i class="fas fa-pen"></i> <i class="fas fa-trash"></i></i></td>
-                                </tr>
+                           </c:forEach>
                         </tbody>
                     </table>
                 <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;

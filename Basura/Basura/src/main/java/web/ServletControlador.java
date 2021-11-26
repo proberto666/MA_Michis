@@ -8,6 +8,7 @@ import dominio.Producto;
 import dominio.Usuario;
 import java.util.List;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -78,6 +79,7 @@ public class ServletControlador extends HttpServlet {
     private void abrirProductos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Producto> listProductos = new ProductoDaoJDBC().getProductos();
         
+         System.out.println("productos = " + listProductos);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listProductos", listProductos);
         request.getRequestDispatcher("productos.jsp").forward(request, response);

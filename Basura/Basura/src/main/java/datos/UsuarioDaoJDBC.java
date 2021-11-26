@@ -125,7 +125,7 @@ public class UsuarioDaoJDBC {
         return rows;
     }
     
-    public int deleteInsumo(Usuario user) {
+    public int deleteUsuario(Usuario user) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;

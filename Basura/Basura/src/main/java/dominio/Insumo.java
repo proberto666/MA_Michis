@@ -10,6 +10,10 @@ public class Insumo {
 
     public Insumo() {
     }
+    
+    public Insumo(int idInsumo) {
+        this.idInsumo = idInsumo;
+    }
 
     public Insumo(int idInsumo, String nombre, String color, String proveedor, int cantidad, double costo) {
         this.idInsumo = idInsumo;

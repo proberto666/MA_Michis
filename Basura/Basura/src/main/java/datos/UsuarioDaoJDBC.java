@@ -79,6 +79,40 @@ public class UsuarioDaoJDBC {
         return user;
     }
     
+    
+    public Usuario LogIn(Usuario user) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_LOGIN);
+            stmt.setString(1, user.getUsuario());
+            stmt.setString(2, user.getPassword());
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                int id = rs.getInt("idUsuario");
+                String usuario = rs.getString("usuario");
+                String password = rs.getString("password");
+                String contacto = rs.getString("contacto");
+                String nivel = rs.getString("nivel");
+                
+                user.setIdUsuario(id);
+                user.setUsuario(usuario);
+                user.setPassword(password);
+                user.setContacto(contacto);
+                user.setNivel(nivel);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return user;
+    }
+    
     public int addUsuario(Usuario user) {
         Connection conn = null;
         PreparedStatement stmt = null;

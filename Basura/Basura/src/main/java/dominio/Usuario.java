@@ -13,6 +13,12 @@ public class Usuario {
     public Usuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
+    
+    public Usuario(String usuario, String password) {
+        this.usuario = usuario;
+        this.password = password;
+    }
+    
 
     public Usuario(int idUsuario, String usuario, String password, String contacto, String nivel) {
         this.idUsuario = idUsuario;

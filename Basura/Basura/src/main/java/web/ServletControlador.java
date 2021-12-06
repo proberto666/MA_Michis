@@ -175,7 +175,6 @@ public class ServletControlador extends HttpServlet {
 
     //Método para eliminar un producto
     private void eliminarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //recuperamos los valores del formulario agregarProducto
         int idProducto = Integer.parseInt(request.getParameter("idProducto"));
 
         //Creamos el objeto de producto (modelo)
@@ -278,7 +277,7 @@ public class ServletControlador extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String cantidadString = request.getParameter("cantidad");
         String precioString = request.getParameter("precio");
-        String img = "ballena.png";
+        String img = request.getParameter("img");
         
         
 
@@ -364,7 +363,7 @@ public class ServletControlador extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String cantidadString = request.getParameter("cantidad");
         String precioString = request.getParameter("precio");
-        String img = "ballena.png";
+        String img = request.getParameter("img");
 
         //Convertimos el string recibido como parámetro y lo convertimos en int
         int cantidad = 0;

@@ -15,7 +15,7 @@
                     <div class="col-8 container">
                         <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG">
                     </div>
-                    <input type="file" name="img" placeholder="Nombre imagen PNG" class="inputValue form-control mt-4" required>
+                    <input type="text" name="img" placeholder="URL de la imagen" class="inputValue form-control mt-4" required>
                     <br> <br>
                     <input type="text" name="nombre" placeholder="Nombre" class="inputValue form-control" required>
                     <br> <br>

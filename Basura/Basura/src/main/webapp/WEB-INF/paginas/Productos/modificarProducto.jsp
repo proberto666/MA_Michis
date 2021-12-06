@@ -18,10 +18,9 @@
                   method="POST">
                 <h1 class="text-center">Editar Producto</h1> </br>
                 <div class="col-8 container">
-                    <img class="img-fluid" src="${pageContext.request.contextPath}/ServletImagenes?load=cargarImgPNG&ImgName=${producto.img}">
+                    <img class="img-fluid" src="${producto.img}">
                 </div>
-                <input type="text" name="img" placeholder="Nombre imagen PNG" value="${producto.img}" class="inputValue form-control mt-4" required readonly>
-                <a href="#" class="btn bgBlack text-white mt-3">Añadir Foto</a>
+                <input type="text" name="img" placeholder="URL imagen" value="${producto.img}" class="inputValue form-control mt-4" required>
                 <br> <br>
                 <input type="text" name="nombre" placeholder="Nombre" value="${producto.nombre}" class="inputValue form-control" required>
                 <br> <br>

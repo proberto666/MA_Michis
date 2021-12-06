@@ -8,12 +8,12 @@
             <div class="col-md-12" >
                 <table class="table thead-light" >
                    
-                    <thead class="titleTable">
+                    <thead class="titleTable text-center">
                             <tr>
-                                <th>USUARIO</th>
-                                <th>CONTRASEÑA</th>
-                                <th>CONTACTO</th>
-                                <th>NIVEL</th>
+                                <th>Usuario</th>
+                                <th>Contraseña</th>
+                                <th>Contacto</th>
+                                <th>Nivel</th>
                                 <th> </th>
                                 <th> </th>
                             </tr>
@@ -40,6 +40,7 @@
                            </c:forEach>
                         </tbody>
                     </table>
+                
                 <a href="#" class="btn float text-white" style="background-color: #eb332c; border-radius: 50%;
                    "data-toggle="modal" data-target="#agregarUsuarioModal">
                     <i class="fas fa-plus fa-2x mt-2"></i>
@@ -47,8 +48,6 @@
             </div>
         </div>
     </div>
-
-    
     
 </section>
 
